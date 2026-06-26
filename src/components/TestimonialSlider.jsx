@@ -5,6 +5,7 @@ import styles from './TestimonialSlider.module.css';
 
 export default function TestimonialSlider() {
   const [active, setActive] = useState(0);
+  const [expandedId, setExpandedId] = useState(null);
   const startX = useRef(0);
   const intervalRef = useRef(null);
 
@@ -34,6 +35,16 @@ export default function TestimonialSlider() {
     if (Math.abs(diff) > 50) diff > 0 ? handleNext() : handlePrev();
   };
 
+  const handleCardClick = (t, idx, isCenter) => {
+    if (isCenter) {
+      setExpandedId(prev => prev === t.id ? null : t.id);
+    } else {
+      go(idx);
+      clearInterval(intervalRef.current);
+      startAuto();
+    }
+  };
+
   // Show 3 at a time on large screens
   const visibleIndices = [
     (active - 1 + count) % count,
@@ -48,23 +59,33 @@ export default function TestimonialSlider() {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {testimonials.map((t, i) => {
-          const pos = visibleIndices.indexOf(i);
-          const isCenter = pos === 1;
+        {visibleIndices.map((idx, pos) => {
+          const t = testimonials[idx];
           const isLeft = pos === 0;
+          const isCenter = pos === 1;
           const isRight = pos === 2;
-          const isVisible = pos !== -1;
+          
+          const isExpanded = expandedId === t.id;
+          const maxChar = 130;
+          const isLong = t.quote.length > maxChar;
+          const displayQuote = (isLong && !isExpanded) ? `${t.quote.slice(0, maxChar)}...` : t.quote;
+
           return (
             <div
               key={t.id}
-              className={`${styles.card} ${isCenter ? styles.center : ''} ${isLeft ? styles.left : ''} ${isRight ? styles.right : ''} ${isVisible ? styles.visible : styles.hidden} glow-card`}
+              onClick={() => handleCardClick(t, idx, isCenter)}
+              className={`${styles.card} ${isCenter ? styles.center : ''} ${isLeft ? styles.left : ''} ${isRight ? styles.right : ''} glow-card`}
             >
               <div className={styles.stars}>
                 {Array.from({ length: t.rating }).map((_, idx) => (
                   <i key={idx} className="fa-solid fa-star"></i>
                 ))}
               </div>
-              <blockquote className={styles.quote}>&ldquo;{t.quote}&rdquo;</blockquote>
+              <div className={styles.quoteWrapper}>
+                <blockquote className={styles.quote}>&ldquo;{displayQuote}&rdquo;</blockquote>
+                {isLong && !isExpanded && <span className={styles.readMore}>Read More <i className="fa-solid fa-chevron-down" style={{ fontSize: '10px', marginLeft: '4px' }}></i></span>}
+                {isLong && isExpanded && <span className={styles.readMore}>Show Less <i className="fa-solid fa-chevron-up" style={{ fontSize: '10px', marginLeft: '4px' }}></i></span>}
+              </div>
               <div className={styles.author}>
                 <div className={styles.avatar}>
                   {t.image ? (
@@ -108,6 +129,8 @@ export default function TestimonialSlider() {
           <i className="fa-solid fa-arrow-right"></i>
         </button>
       </div>
+
+
     </div>
   );
 }

@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="ng1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00A3FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00A3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ng2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ng3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow-sm">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-md">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-lg">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ambient background glows -->
+  <ellipse cx="180" cy="220" rx="340" ry="260" fill="url(#ng1)" opacity="0.12"/>
+  <ellipse cx="1260" cy="650" rx="300" ry="240" fill="url(#ng2)" opacity="0.10"/>
+  <ellipse cx="720" cy="480" rx="280" ry="200" fill="url(#ng1)" opacity="0.07"/>
+  <ellipse cx="400" cy="700" rx="200" ry="160" fill="url(#ng2)" opacity="0.08"/>
+  <ellipse cx="1100" cy="150" rx="220" ry="180" fill="url(#ng3)" opacity="0.09"/>
+
+  <!-- ── Network connections (thin lines) ── -->
+  <g stroke="rgba(0,163,255,0.18)" stroke-width="0.8" fill="none">
+    <line x1="80"  y1="60"  x2="240" y2="160"/>
+    <line x1="240" y1="160" x2="420" y2="90"/>
+    <line x1="420" y1="90"  x2="600" y2="200"/>
+    <line x1="600" y1="200" x2="750" y2="110"/>
+    <line x1="750" y1="110" x2="920" y2="190"/>
+    <line x1="920" y1="190" x2="1080" y2="80"/>
+    <line x1="1080" y1="80" x2="1260" y2="170"/>
+    <line x1="1260" y1="170" x2="1400" y2="100"/>
+    <!-- Row 2 -->
+    <line x1="130" y1="310" x2="300" y2="260"/>
+    <line x1="300" y1="260" x2="480" y2="340"/>
+    <line x1="480" y1="340" x2="650" y2="280"/>
+    <line x1="650" y1="280" x2="830" y2="360"/>
+    <line x1="830" y1="360" x2="1010" y2="290"/>
+    <line x1="1010" y1="290" x2="1180" y2="370"/>
+    <line x1="1180" y1="370" x2="1360" y2="300"/>
+    <!-- Row 3 -->
+    <line x1="60"  y1="480" x2="220" y2="430"/>
+    <line x1="220" y1="430" x2="390" y2="510"/>
+    <line x1="390" y1="510" x2="560" y2="450"/>
+    <line x1="560" y1="450" x2="730" y2="530"/>
+    <line x1="730" y1="530" x2="900" y2="460"/>
+    <line x1="900" y1="460" x2="1070" y2="540"/>
+    <line x1="1070" y1="540" x2="1240" y2="470"/>
+    <line x1="1240" y1="470" x2="1410" y2="530"/>
+    <!-- Row 4 -->
+    <line x1="100" y1="650" x2="270" y2="600"/>
+    <line x1="270" y1="600" x2="440" y2="680"/>
+    <line x1="440" y1="680" x2="610" y2="620"/>
+    <line x1="610" y1="620" x2="780" y2="700"/>
+    <line x1="780" y1="700" x2="950" y2="640"/>
+    <line x1="950" y1="640" x2="1120" y2="720"/>
+    <line x1="1120" y1="720" x2="1290" y2="650"/>
+    <line x1="1290" y1="650" x2="1420" y2="700"/>
+    <!-- Vertical cross-links -->
+    <line x1="240" y1="160" x2="300" y2="260"/>
+    <line x1="420" y1="90"  x2="480" y2="340"/>
+    <line x1="600" y1="200" x2="650" y2="280"/>
+    <line x1="750" y1="110" x2="730" y2="530"/>
+    <line x1="920" y1="190" x2="900" y2="460"/>
+    <line x1="1080" y1="80" x2="1070" y2="540"/>
+    <line x1="1260" y1="170" x2="1240" y2="470"/>
+    <line x1="300" y1="260" x2="270" y2="600"/>
+    <line x1="480" y1="340" x2="440" y2="680"/>
+    <line x1="650" y1="280" x2="610" y2="620"/>
+    <line x1="830" y1="360" x2="780" y2="700"/>
+    <line x1="1010" y1="290" x2="950" y2="640"/>
+    <line x1="1180" y1="370" x2="1120" y2="720"/>
+  </g>
+
+  <!-- Purple cross-links -->
+  <g stroke="rgba(124,58,237,0.14)" stroke-width="0.7" fill="none">
+    <line x1="80"  y1="60"  x2="300" y2="260"/>
+    <line x1="420" y1="90"  x2="650" y2="280"/>
+    <line x1="750" y1="110" x2="1010" y2="290"/>
+    <line x1="1080" y1="80" x2="1180" y2="370"/>
+    <line x1="130" y1="310" x2="390" y2="510"/>
+    <line x1="560" y1="450" x2="830" y2="360"/>
+    <line x1="900" y1="460" x2="1180" y2="370"/>
+    <line x1="270" y1="600" x2="560" y2="450"/>
+    <line x1="610" y1="620" x2="900" y2="460"/>
+    <line x1="780" y1="700" x2="1070" y2="540"/>
+    <line x1="1120" y1="720" x2="1360" y2="300"/>
+    <line x1="220" y1="430" x2="440" y2="680"/>
+    <line x1="730" y1="530" x2="950" y2="640"/>
+  </g>
+
+  <!-- ── Node clusters (main) ── -->
+  <!-- Blue primary nodes -->
+  <g filter="url(#glow-sm)">
+    <circle cx="80"  cy="60"  r="3.5" fill="#00A3FF" opacity="0.9"/>
+    <circle cx="240" cy="160" r="4.5" fill="#00A3FF" opacity="0.85"/>
+    <circle cx="420" cy="90"  r="3"   fill="#38bdf8" opacity="0.9"/>
+    <circle cx="600" cy="200" r="5"   fill="#00A3FF" opacity="0.8"/>
+    <circle cx="750" cy="110" r="3"   fill="#38bdf8" opacity="0.85"/>
+    <circle cx="920" cy="190" r="4"   fill="#00A3FF" opacity="0.9"/>
+    <circle cx="1080" cy="80"  r="3.5" fill="#38bdf8" opacity="0.8"/>
+    <circle cx="1260" cy="170" r="4.5" fill="#00A3FF" opacity="0.85"/>
+    <circle cx="1400" cy="100" r="3"   fill="#38bdf8" opacity="0.9"/>
+
+    <circle cx="130" cy="310" r="3"   fill="#00A3FF" opacity="0.8"/>
+    <circle cx="300" cy="260" r="4"   fill="#38bdf8" opacity="0.85"/>
+    <circle cx="480" cy="340" r="5"   fill="#00A3FF" opacity="0.9"/>
+    <circle cx="650" cy="280" r="3.5" fill="#38bdf8" opacity="0.8"/>
+    <circle cx="830" cy="360" r="4"   fill="#00A3FF" opacity="0.85"/>
+    <circle cx="1010" cy="290" r="3"  fill="#38bdf8" opacity="0.9"/>
+    <circle cx="1180" cy="370" r="4.5" fill="#00A3FF" opacity="0.8"/>
+    <circle cx="1360" cy="300" r="3"  fill="#38bdf8" opacity="0.85"/>
+
+    <circle cx="60"  cy="480" r="3"   fill="#00A3FF" opacity="0.8"/>
+    <circle cx="220" cy="430" r="4.5" fill="#38bdf8" opacity="0.9"/>
+    <circle cx="390" cy="510" r="3.5" fill="#00A3FF" opacity="0.85"/>
+    <circle cx="560" cy="450" r="5"   fill="#38bdf8" opacity="0.8"/>
+    <circle cx="730" cy="530" r="3"   fill="#00A3FF" opacity="0.9"/>
+    <circle cx="900" cy="460" r="4"   fill="#38bdf8" opacity="0.85"/>
+    <circle cx="1070" cy="540" r="3.5" fill="#00A3FF" opacity="0.8"/>
+    <circle cx="1240" cy="470" r="4"  fill="#38bdf8" opacity="0.9"/>
+    <circle cx="1410" cy="530" r="3"  fill="#00A3FF" opacity="0.85"/>
+
+    <circle cx="100" cy="650" r="3.5" fill="#38bdf8" opacity="0.8"/>
+    <circle cx="270" cy="600" r="4"   fill="#00A3FF" opacity="0.9"/>
+    <circle cx="440" cy="680" r="3"   fill="#38bdf8" opacity="0.85"/>
+    <circle cx="610" cy="620" r="5"   fill="#00A3FF" opacity="0.8"/>
+    <circle cx="780" cy="700" r="3.5" fill="#38bdf8" opacity="0.9"/>
+    <circle cx="950" cy="640" r="4"   fill="#00A3FF" opacity="0.85"/>
+    <circle cx="1120" cy="720" r="3"  fill="#38bdf8" opacity="0.8"/>
+    <circle cx="1290" cy="650" r="4.5" fill="#00A3FF" opacity="0.9"/>
+    <circle cx="1420" cy="700" r="3"  fill="#38bdf8" opacity="0.85"/>
+  </g>
+
+  <!-- Purple accent nodes -->
+  <g filter="url(#glow-sm)">
+    <circle cx="340" cy="420" r="3.5" fill="#7c3aed" opacity="0.85"/>
+    <circle cx="520" cy="160" r="3"   fill="#a855f7" opacity="0.8"/>
+    <circle cx="860" cy="580" r="4"   fill="#7c3aed" opacity="0.9"/>
+    <circle cx="1140" cy="450" r="3"  fill="#a855f7" opacity="0.8"/>
+    <circle cx="160" cy="760" r="3.5" fill="#7c3aed" opacity="0.85"/>
+    <circle cx="680" cy="800" r="3"   fill="#a855f7" opacity="0.8"/>
+    <circle cx="1020" cy="820" r="4"  fill="#7c3aed" opacity="0.9"/>
+    <circle cx="1320" cy="780" r="3"  fill="#a855f7" opacity="0.85"/>
+  </g>
+
+  <!-- ── Large hub nodes with halos ── -->
+  <g filter="url(#glow-lg)">
+    <!-- Hub 1 - blue (left) -->
+    <circle cx="240" cy="160" r="14"  fill="#00A3FF" opacity="0.06"/>
+    <circle cx="240" cy="160" r="9"   fill="#00A3FF" opacity="0.10"/>
+    <circle cx="240" cy="160" r="5.5" fill="#00A3FF" opacity="0.9"/>
+    <!-- Hub 2 - purple (center-top) -->
+    <circle cx="750" cy="110" r="16"  fill="#7c3aed" opacity="0.06"/>
+    <circle cx="750" cy="110" r="10"  fill="#7c3aed" opacity="0.10"/>
+    <circle cx="750" cy="110" r="6"   fill="#a855f7" opacity="0.9"/>
+    <!-- Hub 3 - blue (right) -->
+    <circle cx="1260" cy="170" r="14" fill="#00A3FF" opacity="0.06"/>
+    <circle cx="1260" cy="170" r="9"  fill="#00A3FF" opacity="0.10"/>
+    <circle cx="1260" cy="170" r="5.5" fill="#38bdf8" opacity="0.9"/>
+    <!-- Hub 4 - purple (mid-left) -->
+    <circle cx="480" cy="340" r="18"  fill="#7c3aed" opacity="0.06"/>
+    <circle cx="480" cy="340" r="11"  fill="#7c3aed" opacity="0.10"/>
+    <circle cx="480" cy="340" r="6.5" fill="#a855f7" opacity="0.9"/>
+    <!-- Hub 5 - cyan (center) -->
+    <circle cx="900" cy="460" r="20"  fill="#00A3FF" opacity="0.06"/>
+    <circle cx="900" cy="460" r="12"  fill="#00A3FF" opacity="0.10"/>
+    <circle cx="900" cy="460" r="7"   fill="#38bdf8" opacity="0.9"/>
+    <!-- Hub 6 - purple (bottom-center) -->
+    <circle cx="610" cy="620" r="16"  fill="#7c3aed" opacity="0.06"/>
+    <circle cx="610" cy="620" r="10"  fill="#7c3aed" opacity="0.10"/>
+    <circle cx="610" cy="620" r="6"   fill="#a855f7" opacity="0.9"/>
+    <!-- Hub 7 - blue (right-mid) -->
+    <circle cx="1180" cy="370" r="14" fill="#00A3FF" opacity="0.06"/>
+    <circle cx="1180" cy="370" r="9"  fill="#00A3FF" opacity="0.10"/>
+    <circle cx="1180" cy="370" r="5.5" fill="#38bdf8" opacity="0.9"/>
+  </g>
+
+  <!-- ── Scattered micro-particles ── -->
+  <g fill="rgba(255,255,255,0.35)" filter="url(#glow-sm)">
+    <circle cx="170"  cy="40"  r="1.2"/>
+    <circle cx="360"  cy="20"  r="1"/>
+    <circle cx="500"  cy="50"  r="1.5"/>
+    <circle cx="690"  cy="30"  r="1"/>
+    <circle cx="870"  cy="55"  r="1.3"/>
+    <circle cx="1050" cy="25"  r="1"/>
+    <circle cx="1190" cy="45"  r="1.5"/>
+    <circle cx="1380" cy="30"  r="1"/>
+    <circle cx="50"   cy="180" r="1.2"/>
+    <circle cx="200"  cy="390" r="1"/>
+    <circle cx="370"  cy="230" r="1.5"/>
+    <circle cx="540"  cy="380" r="1"/>
+    <circle cx="710"  cy="220" r="1.3"/>
+    <circle cx="880"  cy="310" r="1"/>
+    <circle cx="1050" cy="400" r="1.5"/>
+    <circle cx="1220" cy="240" r="1"/>
+    <circle cx="1390" cy="410" r="1.2"/>
+    <circle cx="110"  cy="560" r="1"/>
+    <circle cx="290"  cy="490" r="1.5"/>
+    <circle cx="460"  cy="580" r="1"/>
+    <circle cx="620"  cy="500" r="1.3"/>
+    <circle cx="800"  cy="590" r="1"/>
+    <circle cx="970"  cy="510" r="1.5"/>
+    <circle cx="1140" cy="600" r="1"/>
+    <circle cx="1310" cy="520" r="1.2"/>
+    <circle cx="40"   cy="740" r="1"/>
+    <circle cx="210"  cy="670" r="1.5"/>
+    <circle cx="380"  cy="760" r="1"/>
+    <circle cx="550"  cy="690" r="1.3"/>
+    <circle cx="720"  cy="770" r="1"/>
+    <circle cx="890"  cy="710" r="1.5"/>
+    <circle cx="1060" cy="780" r="1"/>
+    <circle cx="1230" cy="730" r="1.2"/>
+    <circle cx="1400" cy="760" r="1"/>
+  </g>
+</svg>

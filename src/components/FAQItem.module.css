@@ -1,27 +1,48 @@
+/* ── FAQ Item ────────────────────────────────────────────────── */
 .item {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: rgba(8, 14, 30, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
   overflow: hidden;
-  transition: var(--transition);
-  background: var(--bg-card);
+  position: relative;
 }
 
-.item:hover,
+/* Subtle left accent line always visible */
+.item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.35s ease;
+  border-radius: 14px 0 0 14px;
+}
+
+.item:hover {
+  border-color: rgba(0, 163, 255, 0.22);
+  box-shadow: 0 4px 30px rgba(0, 163, 255, 0.06);
+}
+
 .open {
-  border-color: var(--border-hover);
-  background: var(--bg-card-hover);
+  border-color: rgba(0, 163, 255, 0.45);
+  background: rgba(0, 163, 255, 0.05);
+  box-shadow: 0 0 0 1px rgba(0, 163, 255, 0.15), 0 8px 40px rgba(0, 163, 255, 0.12);
 }
 
-.open {
-  box-shadow: var(--shadow-glow);
+.open::before {
+  background: linear-gradient(180deg, #00A3FF 0%, #7c3aed 100%);
 }
 
+/* ── Question Row ─────────────────────────────────────────── */
 .question {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-lg) var(--space-xl);
+  gap: var(--space-lg);
+  padding: 22px 24px;
   text-align: left;
   cursor: pointer;
   background: none;
@@ -30,59 +51,111 @@
   font-family: var(--font-main);
   font-size: var(--font-size-base);
   font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.25s ease;
 }
 
+/* ── Number badge ─────────────────────────────────────────── */
 .num {
-  font-size: var(--font-size-sm);
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--blue);
-  min-width: 28px;
+  color: rgba(255, 255, 255, 0.35);
+  min-width: 32px;
   font-feature-settings: 'tnum';
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+  flex-shrink: 0;
 }
 
+.open .num {
+  color: #38bdf8;
+}
+
+/* ── Question text ────────────────────────────────────────── */
 .text {
   flex: 1;
-  line-height: 1.4;
 }
 
+.open .text {
+  color: #e0f2fe;
+}
+
+/* ── Icon button ──────────────────────────────────────────── */
 .icon {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-sm);
-  background: rgba(0, 163, 255, 0.1);
-  border: 1px solid rgba(0, 163, 255, 0.2);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--blue);
-  font-size: var(--font-size-xl);
-  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
-  transition: var(--transition-fast);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .open .icon {
-  background: var(--gradient);
-  border-color: transparent;
-  color: white;
+  background: rgba(0, 163, 255, 0.2);
+  border-color: rgba(0, 163, 255, 0.5);
+  color: #38bdf8;
+}
+
+.item:hover .icon {
+  border-color: rgba(0, 163, 255, 0.3);
+  color: rgba(0, 163, 255, 0.8);
+}
+
+/* ── Plus/minus SVG animation ─────────────────────────────── */
+.iconSvg {
+  width: 16px;
+  height: 16px;
+}
+
+.iconPlus {
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+.iconOpen .iconPlus {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+/* ── Answer panel (animated height) ──────────────────────── */
+.answerWrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.42s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .answer {
-  padding: 0 var(--space-xl) var(--space-lg);
-  padding-left: calc(var(--space-xl) + 28px + var(--space-md));
-  animation: slide-up 0.2s ease;
+  padding: 0 24px 22px;
+  padding-left: calc(24px + 32px + var(--space-lg));
 }
 
 .answer p {
-  font-size: var(--font-size-base);
-  color: var(--text-muted);
-  line-height: 1.7;
+  font-size: var(--font-size-sm);
+  color: rgba(148, 163, 184, 0.9);
+  line-height: 1.75;
+  margin: 0;
+  animation: fadeInUp 0.3s ease both;
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .question { padding: var(--space-md) var(--space-lg); }
+  .question {
+    padding: 18px 16px;
+    gap: var(--space-md);
+    font-size: var(--font-size-sm);
+  }
   .answer {
-    padding: 0 var(--space-lg) var(--space-md);
-    padding-left: var(--space-lg);
+    padding: 0 16px 18px;
+    padding-left: 16px;
   }
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PageBanner from '../components/PageBanner';
 import FAQItem from '../components/FAQItem';
+import FaqBackground from '../components/FaqBackground';
 import { faqs, generalFaqs } from '../data/faqs';
 import styles from './FaqsPage.module.css';
 
@@ -36,7 +37,9 @@ export default function FaqsPage() {
         hideGrid={true}
       />
 
-      <section className="section">
+      <section className={`section ${styles.faqSection}`}>
+        {/* ── Live canvas background ───────────────────────── */}
+        <FaqBackground />
         <div className="container">
           {/* Search Box */}
           <div className={`${styles.searchContainer} reveal`}>
@@ -105,8 +108,8 @@ export default function FaqsPage() {
               <a href="/contact" className="btn btn--gradient">
                 Contact Counselor →
               </a>
-              <a href="tel:+96566779011" className="btn btn--outline">
-                Call +965-66779011
+              <a href="tel:+96555377150" className="btn btn--outline">
+                Call +965-55377150
               </a>
             </div>
           </div>

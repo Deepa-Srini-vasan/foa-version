@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+  <defs>
+    <radialGradient id="og1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00A3FF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#00A3FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="og2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Large orbit rings - blue -->
+  <circle cx="200" cy="300" r="180" stroke="#00A3FF" stroke-width="0.6" fill="none" opacity="0.2"/>
+  <circle cx="200" cy="300" r="130" stroke="#38bdf8" stroke-width="0.4" fill="none" opacity="0.15"/>
+  <circle cx="200" cy="300" r="80"  stroke="#00A3FF" stroke-width="0.5" fill="none" opacity="0.2"/>
+  <!-- Glow fill -->
+  <circle cx="200" cy="300" r="180" fill="url(#og1)" opacity="0.3"/>
+
+  <!-- Large orbit rings - purple (right) -->
+  <circle cx="1250" cy="550" r="200" stroke="#a855f7" stroke-width="0.6" fill="none" opacity="0.18"/>
+  <circle cx="1250" cy="550" r="145" stroke="#7c3aed" stroke-width="0.4" fill="none" opacity="0.14"/>
+  <circle cx="1250" cy="550" r="90"  stroke="#a855f7" stroke-width="0.5" fill="none" opacity="0.18"/>
+  <circle cx="1250" cy="550" r="200" fill="url(#og2)" opacity="0.25"/>
+
+  <!-- Medium orbit - center top -->
+  <circle cx="720" cy="160" r="120" stroke="#38bdf8" stroke-width="0.5" fill="none" opacity="0.16"/>
+  <circle cx="720" cy="160" r="80"  stroke="#00A3FF" stroke-width="0.35" fill="none" opacity="0.12"/>
+
+  <!-- Medium orbit - lower center -->
+  <circle cx="720" cy="720" r="140" stroke="#7c3aed" stroke-width="0.5" fill="none" opacity="0.16"/>
+  <circle cx="720" cy="720" r="95"  stroke="#a855f7" stroke-width="0.35" fill="none" opacity="0.12"/>
+
+  <!-- Small scattered rings -->
+  <circle cx="460"  cy="500" r="55"  stroke="#38bdf8" stroke-width="0.4" fill="none" opacity="0.18"/>
+  <circle cx="980"  cy="350" r="70"  stroke="#a855f7" stroke-width="0.4" fill="none" opacity="0.16"/>
+  <circle cx="1100" cy="750" r="60"  stroke="#00A3FF" stroke-width="0.35" fill="none" opacity="0.14"/>
+  <circle cx="340"  cy="720" r="50"  stroke="#7c3aed" stroke-width="0.4" fill="none" opacity="0.18"/>
+
+  <!-- Tilted ellipses (orbit feel) -->
+  <ellipse cx="200"  cy="300"  rx="240" ry="80"  stroke="#00A3FF" stroke-width="0.5" fill="none" opacity="0.12" transform="rotate(-25 200 300)"/>
+  <ellipse cx="1250" cy="550"  rx="260" ry="90"  stroke="#a855f7" stroke-width="0.5" fill="none" opacity="0.10" transform="rotate(20 1250 550)"/>
+  <ellipse cx="720"  cy="160"  rx="180" ry="60"  stroke="#38bdf8" stroke-width="0.4" fill="none" opacity="0.10" transform="rotate(-15 720 160)"/>
+  <ellipse cx="720"  cy="720"  rx="200" ry="70"  stroke="#7c3aed" stroke-width="0.4" fill="none" opacity="0.10" transform="rotate(15 720 720)"/>
+
+  <!-- Crossing arcs across full width -->
+  <path d="M 0 450 Q 360 150 720 450 Q 1080 750 1440 450" stroke="#00A3FF" stroke-width="0.5" fill="none" opacity="0.10"/>
+  <path d="M 0 500 Q 360 800 720 500 Q 1080 200 1440 500" stroke="#7c3aed" stroke-width="0.5" fill="none" opacity="0.09"/>
+  <path d="M 0 300 Q 480 600 960 300 Q 1200 150 1440 300" stroke="#38bdf8" stroke-width="0.4" fill="none" opacity="0.08"/>
+</svg>

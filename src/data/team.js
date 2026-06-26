@@ -2,22 +2,25 @@ export const team = [
   {
     id: 'haris',
     name: 'Mr. Mohammed Haris',
-    role: 'Founder, Director & CEO',
-    specialty: 'British Accent & Pronunciation Expert',
+    role: 'Founder & Director',
+    specialty: 'Creator of the Career Confidence Architecture',
     avatar: 'MH',
     image: '/assets/team/MD.png',
-    bio: 'With over 15 years of experience teaching British English pronunciation, Mohammed has helped thousands of non-native speakers transform their accents and communicate with confidence. As a UK-certified coach born in India, he speaks multiple Indian languages including Hindi, Urdu, Tamil, Kannada, Malayalam, and Telugu, and has also learned Arabic during his years in the Middle East.',
+    bio: "For 16 years, Haris has worked with one conviction: capable people get overlooked not because of their English, but because of a visibility gap — the distance between what they can do and what the room actually sees. Through ProFRONTIER's signature method, the Career Confidence Architecture, he helps professionals across many countries especially the Gulf & South Asia close that gap — turning quietly competent people into clear, confident, credible communicators who get selected, not just shortlisted. His work spans graduates walking into their first interview, managers fighting to be heard in meetings, and corporate teams being built to communicate with authority.",
     credentials: [
-      'British Certified TESOL Expert',
-      'Trinity CertTESOL (Trinity College London & Oxford TEFL)',
-      'TTT, Corporate & Soft Skills (CPD, SHRM & HRCi)',
-      'Best Communicative Teacher Award (CILA-2015)',
-      'Expert Trainer: IELTS, OET, PTE, C1 Advanced, TOEFL, Business English, TOEIC, British Accent',
+      'Trinity CertTESOL — Trinity College London',
+      'Certified Train-the-Trainer (CPD · SHRM · HRCI)',
+      'Certified Corporate Trainer & Facilitator',
+      'Certified Soft skills trainer',
+      'AI Generalist Mastermind',
+      'LinkedIn Strategist',
+      'Global MBA - University of Western Australia',
+      'Trusted by 10,000+ Professionals, 20+ MNCs.',
     ],
     stats: [
-      { label: 'Students', value: '5000+' },
-      { label: 'Rating', value: '9.8/10' },
-      { label: 'Years Experience', value: '15+' },
+      { label: 'Professionals', value: '10,000+' },
+      { label: 'MNCs', value: '20+' },
+      { label: 'Years Experience', value: '16+' },
     ],
     social: {
       linkedin: '#',
@@ -51,10 +54,10 @@ export const team = [
 ];
 
 export const stats = [
-  { id: 'students', value: 50000, suffix: '+', label: 'Students Trained', icon: '🎓' },
+  { id: 'students', value: 15000, suffix: '+', label: 'Students Trained', icon: '🎓' },
   { id: 'courses', value: 100, suffix: '+', label: 'Online Courses', icon: '📚' },
   { id: 'success', value: 95, suffix: '%', label: 'Success Rate', icon: '📈' },
-  { id: 'countries', value: 120, suffix: '+', label: 'Countries Served', icon: '🌐' },
+  { id: 'countries', value: 20, suffix: '+', label: 'Countries Served', icon: '🌐' },
 ];
 
 export const contactInfo = {
@@ -62,8 +65,8 @@ export const contactInfo = {
     'profrontieronlineacademy@gmail.com',
     'info@ProFRONTIERonlinetraining.com',
   ],
-  phones: ['+965-66779011', '+965-55377150'],
-  address: 'Middle East, Kuwait',
+  phones: ['+965-55377150'],
+  address: 'Middle East, Kuwait | India',
   mapLink: 'https://www.google.com/maps/place/Kuwait/',
   social: {
     facebook: 'https://www.facebook.com/share/18ffwZyg9p/',

@@ -137,10 +137,10 @@ export default function TermsOfServicePage() {
             <p>For questions about these Terms of Service, please contact:</p>
             <div className={styles.contactBlock}>
               <p><strong>ProFRONTIER International Online Academy</strong></p>
-              <p>📍 Middle East, Kuwait</p>
+              <p>📍 Middle East, Kuwait | India</p>
               <p>📧 <a href="mailto:info@ProFRONTIERonlinetraining.com">info@ProFRONTIERonlinetraining.com</a></p>
               <p>📧 <a href="mailto:profrontieronlineacademy@gmail.com">profrontieronlineacademy@gmail.com</a></p>
-              <p>📞 +965-66779011 | +965-55377150</p>
+              <p>📞 +965-55377150</p>
             </div>
           </Section>
 

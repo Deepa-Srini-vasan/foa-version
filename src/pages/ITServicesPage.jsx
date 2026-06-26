@@ -131,6 +131,19 @@ export default function ITServicesPage() {
 
   return (
     <div className={styles.page}>
+      {/* ── Layered SVG Backgrounds ───────────────────────── */}
+      <div className={styles.servicesBg} aria-hidden="true">
+        <img
+          src="/assets/faq-bg-orbits.svg"
+          alt=""
+          className={`${styles.bgImg} ${styles.bgOrbits}`}
+        />
+        <img
+          src="/assets/faq-bg-network.svg"
+          alt=""
+          className={`${styles.bgImg} ${styles.bgNetwork}`}
+        />
+      </div>
       
       {/* Intro Header Section */}
       <section className={styles.introSection}>

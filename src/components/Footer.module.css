@@ -23,8 +23,6 @@
   padding-bottom: var(--space-3xl);
 }
 
-.brand {}
-
 .logo {
   display: flex;
   align-items: center;
@@ -78,8 +76,6 @@
   border-color: transparent;
   transform: translateY(-2px);
 }
-
-.col {}
 
 .colTitle {
   font-size: var(--font-size-base);

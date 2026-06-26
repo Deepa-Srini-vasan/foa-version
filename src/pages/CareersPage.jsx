@@ -83,6 +83,27 @@ const OPENINGS = [
         <path d="M20,35 C20,25 35,20 50,20 C65,20 80,25 80,35 C80,45 65,50 50,50 C45,50 40,49 35,47 L20,53 L24,43 C21,41 20,38 20,35 Z" fill="currentColor" fillOpacity="0.1" />
       </svg>
     ),
+  },
+  {
+    id: 5,
+    title: 'Social Media Executive',
+    category: 'Marketing',
+    location: 'Remote',
+    type: 'Part Time',
+    applicants: '32+',
+    featured: false,
+    themeColor: '#F59E0B',
+    glowColor: 'rgba(245, 158, 11, 0.15)',
+    borderGlow: 'rgba(245, 158, 11, 0.25)',
+    skills: ['Social Media', 'Marketing', 'Content Creation'],
+    desc: 'Manage and grow our social media presence. Create engaging content, interact with followers, and run campaigns.',
+    iconSvg: (
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20,20 C20,15 30,10 50,10 C70,10 80,15 80,20 C80,25 70,30 50,30 C30,30 20,25 20,20 Z" fill="currentColor" fillOpacity="0.1" />
+        <path d="M25,45 C25,35 35,30 50,30 C65,30 75,35 75,45 L75,65 C75,75 65,80 50,80 C35,80 25,75 25,65 Z" />
+        <path d="M60,60 L65,65" />
+      </svg>
+    ),
   }
 ];
 
@@ -107,9 +128,9 @@ export default function CareersPage() {
 
   // Filter logic
   const filteredOpenings = OPENINGS.filter((op) => {
-    const matchesSearch = op.title.toLowerCase().includes(search.toLowerCase()) || 
-                          op.desc.toLowerCase().includes(search.toLowerCase()) ||
-                          op.skills.some((s) => s.toLowerCase().includes(search.toLowerCase()));
+    const matchesSearch = op.title.toLowerCase().includes(search.toLowerCase()) ||
+      op.desc.toLowerCase().includes(search.toLowerCase()) ||
+      op.skills.some((s) => s.toLowerCase().includes(search.toLowerCase()));
     const matchesCategory = category === 'All Categories' || op.category === category;
     const matchesLocation = location === 'All Locations' || op.location === location;
     const matchesType = type === 'All Types' || op.type === type;
@@ -169,7 +190,7 @@ export default function CareersPage() {
                     <img src="/assets/testimonials/david.png" alt="Educator" />
                   </div>
                   <div className={`${styles.profileBubble} ${styles.bubbleBottom}`}>
-                    <img src="/assets/testimonials/maysa.png" alt="Educator" />
+                    <img src="/assets/testimo/testimo-01.jpeg" alt="Educator" />
                   </div>
                   <div className={`${styles.profileBubble} ${styles.bubbleLeft}`}>
                     <img src="/assets/testimonials/mohammed.png" alt="Educator" />

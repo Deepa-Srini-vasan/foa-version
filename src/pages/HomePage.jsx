@@ -4,6 +4,7 @@ import StatCounter from '../components/StatCounter';
 import CourseCard from '../components/CourseCard';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQItem from '../components/FAQItem';
+import AnimatedGridBg from '../components/AnimatedGridBg';
 import { stats } from '../data/team';
 import { courses } from '../data/courses';
 import { faqs } from '../data/faqs';
@@ -109,6 +110,7 @@ export default function HomePage() {
 
       {/* ── STATS ─────────────────────────────────── */}
       <section className={`${styles.statsSection} section`}>
+        <AnimatedGridBg />
         <div className="container">
           <div className={styles.statsGrid}>
             {stats.map((s) => <StatCounter key={s.id} stat={s} />)}
@@ -118,6 +120,7 @@ export default function HomePage() {
 
       {/* ── WHAT WE OFFER ─────────────────────────── */}
       <section className="section" id="offer">
+        <AnimatedGridBg />
         <div className="container">
           <div className="section__header">
             <span className="section__tag">WHAT WE OFFER FOR GROWTH</span>
@@ -141,6 +144,7 @@ export default function HomePage() {
 
       {/* ── FEATURED COURSES ──────────────────────── */}
       <section className="section" id="courses" style={{ background: 'linear-gradient(180deg, transparent, rgba(8,15,32,0.8) 50%, transparent)' }}>
+        <AnimatedGridBg />
         <div className="container">
           <div className="section__header">
             <span className="section__tag">FEATURED LEARNING PROGRAMS</span>
@@ -158,13 +162,14 @@ export default function HomePage() {
 
       {/* ── INSTRUCTOR ────────────────────────────── */}
       <section className={`${styles.instructor} section`} id="instructor">
+        <AnimatedGridBg />
         <div className={styles.instructorGlow} />
         <div className="container">
           <div className={styles.instructorGrid}>
             <div className={styles.instructorVisual}>
               <div className={styles.instructorCard}>
                 <div className={styles.instructorAvatar}>
-                    <img src="/assets/team/MH.jpeg" alt="Mr. Mohammed Haris" className={styles.instructorAvatarImg} />
+                    <img src="/assets/team/MD.png" alt="Mr. Mohammed Haris" className={styles.instructorAvatarImg} />
                   </div>
                 <div className={styles.instructorRing} />
                 <div className={styles.instructorBadge}>
@@ -178,16 +183,22 @@ export default function HomePage() {
             <div className={styles.instructorContent}>
               <span className="section__tag">MEET YOUR INSTRUCTOR</span>
               <h2 className="section__title">Mr. <span className="gradient-text">Mohammed Haris</span></h2>
-              <p className={styles.instrRole}>Founder, Director & CEO — British Accent & Pronunciation Expert</p>
-              <p className={styles.instrBio}>
-                With over 15 years of experience teaching British English pronunciation, Mohammed has helped thousands of non-native speakers transform their accents and communicate with confidence. British-certified from Oxford TEFL and Trinity College London.
-              </p>
+              <p className={styles.instrRole}>Founder & Director — Creator of the Career Confidence Architecture</p>
+              <div className={styles.instrBio}>
+                <p>For 16 years, Haris has worked with one conviction: capable people get overlooked not because of their English, but because of a visibility gap — the distance between what they can do and what the room actually sees.</p>
+                <p style={{ marginTop: '10px' }}>Through ProFRONTIER's signature method, the Career Confidence Architecture, he helps professionals across many countries especially the Gulf & South Asia close that gap — turning quietly competent people into clear, confident, credible communicators who get selected, not just shortlisted.</p>
+                <p style={{ marginTop: '10px' }}>His work spans graduates walking into their first interview, managers fighting to be heard in meetings, and corporate teams being built to communicate with authority.</p>
+              </div>
               <div className={styles.instrCreds}>
                 {[
-                  'British Certified TESOL Expert',
-                  'Trinity CertTESOL (Oxford TEFL)',
-                  'Best Communicative Teacher Award (CILA-2015)',
-                  'Expert Trainer: IELTS, OET, PTE, TOEFL, Business English, British Accent',
+                  'Trinity CertTESOL — Trinity College London',
+                  'Certified Train-the-Trainer (CPD · SHRM · HRCI)',
+                  'Certified Corporate Trainer & Facilitator',
+                  'Certified Soft skills trainer',
+                  'AI Generalist Mastermind',
+                  'LinkedIn Strategist',
+                  'Global MBA - University of Western Australia',
+                  'Trusted by 10,000+ Professionals, 20+ MNCs.',
                 ].map((c) => (
                   <div key={c} className={styles.instrCred}>
                     <i className="fa-solid fa-circle-check" style={{ color: 'var(--teal)', marginRight: '6px' }}></i> {c}
@@ -196,9 +207,9 @@ export default function HomePage() {
               </div>
               <div className={styles.instrStats}>
                 {[
-                  { n: '5000+', l: 'Students' },
-                  { n: '9.8/10', l: 'Rating' },
-                  { n: '15+', l: 'Years Exp.' },
+                  { n: '10,000+', l: 'Professionals' },
+                  { n: '20+', l: 'MNCs' },
+                  { n: '16+', l: 'Years Exp.' },
                 ].map((s) => (
                   <div key={s.l} className={styles.instrStat}>
                     <strong>{s.n}</strong>
@@ -214,6 +225,7 @@ export default function HomePage() {
 
       {/* ── WHY CHOOSE US ─────────────────────────── */}
       <section className="section" id="why">
+        <AnimatedGridBg />
         <div className="container">
           <div className="section__header">
             <span className="section__tag">OUR EDGE</span>
@@ -236,6 +248,7 @@ export default function HomePage() {
 
       {/* ── TESTIMONIALS ──────────────────────────── */}
       <section className="section" id="testimonials" style={{ background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.06) 0%, transparent 70%)' }}>
+        <AnimatedGridBg />
         <div className="container">
           <div className="section__header">
             <span className="section__tag">STUDENT SUCCESS STORIES</span>
@@ -260,6 +273,7 @@ export default function HomePage() {
 
       {/* ── PRICING ───────────────────────────────── */}
       <section className="section" id="pricing">
+        <AnimatedGridBg />
         <div className="container">
           <div className="section__header">
             <span className="section__tag">INVEST IN YOURSELF</span>
@@ -320,6 +334,7 @@ export default function HomePage() {
 
       {/* ── FAQ PREVIEW ───────────────────────────── */}
       <section className="section">
+        <AnimatedGridBg />
         <div className="container">
           <div className="section__header">
             <span className="section__tag">GOT QUESTIONS?</span>
@@ -337,6 +352,7 @@ export default function HomePage() {
 
       {/* ── CONTACT CTA ───────────────────────────── */}
       <section className={`${styles.ctaSection} section`} id="contact">
+        <AnimatedGridBg />
         <div className={styles.ctaGlowBlue} />
         <div className={styles.ctaGlowPurple} />
         <div className="container">
@@ -352,13 +368,13 @@ export default function HomePage() {
                   <i className="fa-solid fa-envelope" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
                   profrontieronlineacademy@gmail.com
                 </a>
-                <a href="tel:+96566779011" className={styles.ctaContactItem}>
+                <a href="tel:+96555377150" className={styles.ctaContactItem}>
                   <i className="fa-solid fa-phone" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
-                  +965-66779011
+                  +965-55377150
                 </a>
                 <div className={styles.ctaContactItem}>
                   <i className="fa-solid fa-location-dot" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
-                  Middle East, Kuwait
+                  Middle East, Kuwait | India
                 </div>
               </div>
             </div>

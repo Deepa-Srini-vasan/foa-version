@@ -135,7 +135,7 @@ export default function CourseDetailPage() {
 
                 <div className={styles.sideContact}>
                   <p>Need help choosing?</p>
-                  <a href="tel:+96566779011">📞 +965-66779011</a>
+                  <a href="tel:+96555377150">📞 +965-55377150</a>
                   <a href="mailto:profrontieronlineacademy@gmail.com">📧 Email Us</a>
                 </div>
               </div>

@@ -17,9 +17,7 @@ const TEAM_EXTRAS = {
     badgeIcon: 'fa-solid fa-user',
     statsIcons: ['fa-solid fa-graduation-cap', 'fa-solid fa-star', 'fa-solid fa-award'],
     accentColor: '#38bdf8',
-    isPurple: false,
-    bio: "With over 15 years of experience teaching British English pronunciation, Mohammed has helped thousands of non-native speakers transform their accents and communicate with confidence.",
-    labels: ['STUDENTS', 'RATING', 'YEARS EXP.']
+    isPurple: false
   },
   shama: {
     badgeIcon: 'fa-solid fa-briefcase',
@@ -303,7 +301,7 @@ export default function AboutPage() {
                     
                     {/* Credentials checklist */}
                     <div className={styles.teamCreds}>
-                      {member.credentials.slice(0, 3).map((c) => (
+                      {member.credentials.map((c) => (
                         <div key={c} className={styles.teamCred}>
                           <i className="fa-solid fa-circle-check" style={{ color: checkIconColor }}></i>
                           <span>{c}</span>
