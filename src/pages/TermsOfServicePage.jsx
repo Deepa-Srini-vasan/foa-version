@@ -33,12 +33,15 @@ export default function TermsOfServicePage() {
           <Section number="2" title="Our Services">
             <p>ProFRONTIER International Online Academy provides:</p>
             <ul>
-              <li>Online English language courses (IELTS, OET, PTE, Business English, British Accent, etc.)</li>
-              <li>Professional certification preparation (CMA, CPA, ACCA, HRCI, SHRM, NEBOSH, etc.)</li>
-              <li>Language courses (French, German, Chinese, Japanese, Turkish)</li>
-              <li>Soft skills and aviation training programmes</li>
-              <li>IT and digital services</li>
-              <li>Overseas education consulting</li>
+              <li>Health Care & Quality training and certification preparation (CPHQ, CPPS, CPHRM)</li>
+              <li>English Exam Preparation courses (IELTS, OET, PTE, Business English, British Accent, etc.)</li>
+              <li>Language training programs (French, German, etc.)</li>
+              <li>Soft Skills development training</li>
+              <li>Finance and accounting preparation courses (CMA, CPA, ACCA, etc.)</li>
+              <li>Information Technology training and custom IT services</li>
+              <li>Human Resources certification training (HRCI, SHRM)</li>
+              <li>Aviation training programs</li>
+              <li>Overseas education consulting services</li>
             </ul>
             <p>
               We reserve the right to modify, suspend, or discontinue any part of our services at any time with reasonable notice.
@@ -138,9 +141,9 @@ export default function TermsOfServicePage() {
             <div className={styles.contactBlock}>
               <p><strong>ProFRONTIER International Online Academy</strong></p>
               <p>📍 Middle East, Kuwait | India</p>
-              <p>📧 <a href="mailto:info@ProFRONTIERonlinetraining.com">info@ProFRONTIERonlinetraining.com</a></p>
+              <p>📧 <a href="mailto:contact@profrontieracademy.com">contact@profrontieracademy.com</a></p>
               <p>📧 <a href="mailto:profrontieronlineacademy@gmail.com">profrontieronlineacademy@gmail.com</a></p>
-              <p>📞 +965-55377150</p>
+              <p>📞 <a href="tel:+96522094240">+965-22094240</a></p>
             </div>
           </Section>
 

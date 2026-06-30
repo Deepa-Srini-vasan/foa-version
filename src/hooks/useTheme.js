@@ -1,17 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export function useTheme() {
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('pf-theme') || 'dark';
-  });
-
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('pf-theme', theme);
-  }, [theme]);
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('pf-theme', 'dark');
+  }, []);
 
-  const toggleTheme = () =>
-    setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
-
-  return { theme, toggleTheme };
+  return { theme: 'dark', toggleTheme: () => {} };
 }

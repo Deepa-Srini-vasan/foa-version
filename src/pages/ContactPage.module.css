@@ -188,6 +188,26 @@
   filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.5));
 }
 
+.validInput {
+  border-color: var(--teal) !important;
+  box-shadow: 0 0 12px rgba(0, 212, 170, 0.15) !important;
+}
+
+.validInput:focus {
+  border-color: var(--teal) !important;
+  box-shadow: 0 0 15px rgba(0, 212, 170, 0.3) !important;
+}
+
+.invalidInput {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.15) !important;
+}
+
+.invalidInput:focus {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3) !important;
+}
+
 /* Info Column styling */
 .infoCol {
   display: flex;
@@ -336,6 +356,61 @@
 .mapLink:hover {
   color: #00A3FF !important;
   transform: translateX(3px);
+}
+
+.officeCard {
+  align-items: flex-start !important;
+}
+
+.officeHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.statusBadge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statusActive {
+  color: var(--teal);
+  background: rgba(0, 212, 170, 0.08);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+.statusComing {
+  color: #eab308;
+  background: rgba(234, 179, 8, 0.08);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.officeName {
+  font-size: 13px !important;
+  color: var(--white) !important;
+  font-weight: 600;
+  margin-bottom: 4px !important;
+}
+
+.officeAddress {
+  font-size: 13px !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 4px !important;
+}
+
+.officePhone {
+  font-size: 12px !important;
+  color: var(--text-subtle) !important;
+  display: flex;
+  align-items: center;
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
 }
 
 /* Responsive Overrides */

@@ -59,9 +59,6 @@ export default function CourseDetailPage() {
                 <span className={styles.metaBadge}>
                   <i className="fa-solid fa-users" style={{ marginRight: '6px' }}></i> {course.students} students
                 </span>
-                <span className={`${styles.metaBadge} ${styles.levelBadge}`}>
-                  <i className="fa-solid fa-chart-simple" style={{ marginRight: '6px' }}></i> {course.level}
-                </span>
               </div>
 
               {/* Overview */}
@@ -101,7 +98,6 @@ export default function CourseDetailPage() {
                   </div>
                   <div>
                     <h3>{course.title}</h3>
-                    <p>{course.level}</p>
                   </div>
                 </div>
 
@@ -116,9 +112,6 @@ export default function CourseDetailPage() {
                     <span><i className="fa-solid fa-star" style={{ color: '#EAB308' }}></i></span> <span>Rating</span> <strong>{course.rating}/5</strong>
                   </div>
                   <div className={styles.sideMetaItem}>
-                    <span><i className="fa-solid fa-bullseye"></i></span> <span>Level</span> <strong>{course.level}</strong>
-                  </div>
-                  <div className={styles.sideMetaItem}>
                     <span><i className="fa-solid fa-book-open"></i></span> <span>Materials</span> <strong className={styles.free}>FREE</strong>
                   </div>
                   <div className={styles.sideMetaItem}>
@@ -126,16 +119,16 @@ export default function CourseDetailPage() {
                   </div>
                 </div>
 
-                <Link to="/contact" className="btn btn--gradient btn--full btn--lg">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--full btn--lg">
                   Enroll Now →
-                </Link>
+                </a>
                 <Link to="/contact" className="btn btn--outline btn--full">
                   Book Free Demo
                 </Link>
 
                 <div className={styles.sideContact}>
                   <p>Need help choosing?</p>
-                  <a href="tel:+96555377150">📞 +965-55377150</a>
+                  <a href="tel:+96522094240">📞 +965-22094240</a>
                   <a href="mailto:profrontieronlineacademy@gmail.com">📧 Email Us</a>
                 </div>
               </div>

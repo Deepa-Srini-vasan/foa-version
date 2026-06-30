@@ -52,6 +52,8 @@ export function getFaIcon(icon) {
     '⏱': 'fa-regular fa-clock',
     '⭐': 'fa-solid fa-star',
     '✅': 'fa-solid fa-circle-check',
+    '🛡️': 'fa-solid fa-shield-halved',
+    '⚖️': 'fa-solid fa-scale-balanced',
 
     // Countries
     '🇦🇺': 'fa-solid fa-map-location-dot',

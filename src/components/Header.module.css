@@ -37,7 +37,7 @@
 }
 
 .logoImage {
-  height: 52px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -177,7 +177,11 @@
 .hamburgerOpen span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
-.hamburgerOpen span:nth-child(2) { opacity: 0; }
+
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
 .hamburgerOpen span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -357,11 +361,21 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .menu { display: none; }
-  .hamburger { display: flex; }
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 @media (max-width: 640px) {
-  .logoSub { display: none; }
-  .actions :global(.btn) { display: none; }
+  .logoSub {
+    display: none;
+  }
+
+  .actions :global(.btn) {
+    display: none;
+  }
 }

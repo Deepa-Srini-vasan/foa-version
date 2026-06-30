@@ -150,7 +150,7 @@ export default function CountryDetailPage() {
 
                 <div className={styles.sideContact}>
                   <p>Have questions about studying abroad?</p>
-                  <a href="tel:+96555377150"><i className="fa-solid fa-phone" style={{ marginRight: '6px' }}></i> +965-55377150</a>
+                  <a href="tel:+96522094240"><i className="fa-solid fa-phone" style={{ marginRight: '6px' }}></i> +965-22094240</a>
                   <a href="mailto:profrontieronlineacademy@gmail.com"><i className="fa-solid fa-envelope" style={{ marginRight: '6px' }}></i> Email Us</a>
                 </div>
               </div>

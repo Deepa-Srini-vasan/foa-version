@@ -48,13 +48,13 @@ export default function Footer() {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Popular Courses</h4>
             <ul className={styles.colList}>
+              <li><Link to="/courses/cphq">CPHQ Training</Link></li>
               <li><Link to="/courses/ielts">IELTS Preparation</Link></li>
               <li><Link to="/courses/oet">OET Training</Link></li>
               <li><Link to="/courses/pte">PTE Academic</Link></li>
+              <li><Link to="/courses/cpps">CPPS Training</Link></li>
               <li><Link to="/courses/business-english">Business English</Link></li>
               <li><Link to="/courses/cma">CMA Certification</Link></li>
-              <li><Link to="/courses/nebosh">NEBOSH</Link></li>
-              <li><Link to="/courses/voice-accent">British Accent Training</Link></li>
             </ul>
           </div>
 

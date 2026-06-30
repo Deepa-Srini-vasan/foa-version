@@ -7,8 +7,8 @@ import { getFaIcon } from '../utils/icons';
 import styles from './AboutPage.module.css';
 
 const MISSION_VALUES = [
-  { icon: 'fa-solid fa-bullseye', title: 'Our Mission', desc: 'To democratize world-class education by providing high-quality, affordable online courses to learners across 120+ countries. We believe every learner deserves access to transformational education regardless of their location.' },
-  { icon: 'fa-solid fa-compass', title: 'Our Vision', desc: 'To become the world\'s most trusted online academy for language, professional, and certification training — empowering individuals to upgrade their skills and elevate their lives through quality education.' },
+  { icon: 'fa-solid fa-bullseye', title: 'Our Mission', desc: 'To democratize world-class education by providing high-quality, affordable online courses to learners across 20+ countries. We believe every learner deserves access to transformational education regardless of their location.' },
+  { icon: 'fa-solid fa-compass', title: 'Our Vision', desc: 'To become the world\'s most trusted online academy for language, professional, and certification training, empowering individuals to upgrade their skills and elevate their lives through quality education.' },
   { icon: 'fa-solid fa-gem', title: 'Our Values', desc: 'Excellence in every lesson. Integrity in every interaction. Innovation in every curriculum. Empathy for every learner\'s unique journey. Community built on mutual respect and support.' },
 ];
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 </div>
                 <div className={styles.cardText}>
                   <span className={styles.cardTitle}>Global Reach</span>
-                  <span className={styles.cardSubtitle}>Students in 120+ countries</span>
+                  <span className={styles.cardSubtitle}>Students in 20+ countries</span>
                 </div>
               </div>
 
@@ -130,7 +130,7 @@ export default function AboutPage() {
                   <i className="fa-solid fa-book-open"></i>
                 </div>
                 <div className={styles.cardText}>
-                  <span className={styles.cardVal}>200+</span>
+                  <span className={styles.cardVal}>100+</span>
                   <span className={styles.cardSubtitle}>Premium Courses</span>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function AboutPage() {
               </div>
               
               <p>
-                Since it started, we have been delivering outstanding results and have witnessed a remarkable change in people's lives. Professional courses from different Sectors like Finance, IT, Human Resource, Aviation, Languages, Soft Skills, Safety First are available — all carefully assessed for quality and educational soundness.
+                Since it started, we have been delivering outstanding results and have witnessed a remarkable change in people's lives. Professional courses from different sectors like Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation are available — all carefully assessed for quality and educational soundness.
               </p>
               
               <div className={styles.storyButtons}>
@@ -229,6 +229,48 @@ export default function AboutPage() {
                       </svg>
                     </div>
                     <div className={styles.cardArrow}>➔</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline of Growth */}
+      <section className={styles.timelineSection}>
+        <div className={styles.timelineGlow} />
+        <div className="container">
+          <div className={styles.timelineHeader}>
+            <span className={styles.timelineBadge}>OUR JOURNEY</span>
+            <h2 className={styles.timelineTitle}>
+              Milestones of <span className="gradient-text">Academic Growth</span>
+            </h2>
+            <p className={styles.timelineSubtitle}>
+              Tracing our path from a response to virtual learning needs to a premier international academy
+            </p>
+          </div>
+
+          <div className={styles.timelineGrid}>
+            <div className={styles.timelineTrack} />
+            {[
+              { year: '2020', title: 'The Inception & Response', desc: 'Formed in response to the global lockdown, uniting top-tier educators to deliver engaging, high-quality online courses.' },
+              { year: '2022', title: 'Standard Pedagogy Upgrade', desc: 'Integrated official training curricula for CPHQ, IELTS, and OET, aligned with Oxford TEFL and Trinity College guidelines.' },
+              { year: '2024', title: 'Kuwait & Regional Headquarters', desc: 'Solidified physical presence in Kuwait to coordinate localized operations and overseas study guidance.' },
+              { year: '2026', title: 'Tri-Regional Support Hub', desc: 'Expanding offices across India, Kuwait, and future UAE to manage B2B services, IT support, and 100+ program streams.' }
+            ].map((item, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <div key={item.year} className={`${styles.timelineRow} ${isEven ? styles.rowLeft : styles.rowRight} reveal reveal--delay-${idx + 1}`}>
+                  <div className={styles.timelineBubble}>
+                    <div className={styles.bubbleInner}>
+                      <span>{item.year}</span>
+                    </div>
+                  </div>
+                  <div className={`${styles.timelineCard} glow-card`}>
+                    <span className={styles.cardYear}>{item.year}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
                   </div>
                 </div>
               );
@@ -337,7 +379,7 @@ export default function AboutPage() {
             <div className={`${styles.partnerCard} reveal reveal--delay-1 glow-card`}>
               <div className={styles.partnerIcon}><i className="fa-solid fa-book-open"></i></div>
               <h3>Popular Courses</h3>
-              <p>Professional courses from different Sectors like Finance, IT, Human Resource, Aviation, Languages, Soft Skills, Safety First are available.</p>
+              <p>Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation are available.</p>
               <Link to="/courses" className="btn btn--gradient">Browse Courses →</Link>
             </div>
             <div className={`${styles.partnerCard} reveal reveal--delay-2 glow-card`}>
@@ -349,7 +391,7 @@ export default function AboutPage() {
             <div className={`${styles.partnerCard} reveal reveal--delay-3 glow-card`}>
               <div className={styles.partnerIcon}><i className="fa-solid fa-handshake"></i></div>
               <h3>Become a Partner</h3>
-              <p>ProFRONTIER are experts in education — in quality education. Our combined expertise means we can cover all aspects of education.</p>
+              <p>ProFRONTIER are experts in education — in quality education. Our combined expertise covers all aspects of education.</p>
               <Link to="/contact" className="btn btn--outline">Get in Touch →</Link>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { trackEvent } from '../utils/analytics';
 import styles from './Header.module.css';
 
 const NAV_ITEMS = [
@@ -8,14 +9,14 @@ const NAV_ITEMS = [
     label: 'Courses',
     to: '/courses',
     dropdown: [
+      { label: 'Health Care & Quality', to: '/courses?cat=healthcare', icon: 'fa-solid fa-hospital' },
+      { label: 'English Exam Preparation', to: '/courses?cat=language', icon: 'fa-solid fa-file-signature' },
       { label: 'Languages', to: '/courses?cat=language', icon: 'fa-solid fa-earth-americas' },
-      { label: 'Finance', to: '/courses?cat=finance', icon: 'fa-solid fa-coins' },
-      { label: 'IT & Software', to: '/courses?cat=it', icon: 'fa-solid fa-laptop-code' },
-      { label: 'Human Resource', to: '/courses?cat=hr', icon: 'fa-solid fa-user-tie' },
-      { label: 'Aviation', to: '/courses?cat=aviation', icon: 'fa-solid fa-plane' },
       { label: 'Soft Skills', to: '/courses?cat=softskills', icon: 'fa-solid fa-brain' },
-      { label: 'Safety First', to: '/courses?cat=safety', icon: 'fa-solid fa-helmet-safety' },
-      { label: 'Quality & Healthcare', to: '/courses?cat=healthcare', icon: 'fa-solid fa-hospital' },
+      { label: 'Finance', to: '/courses?cat=finance', icon: 'fa-solid fa-coins' },
+      { label: 'Information Technology', to: '/courses?cat=it', icon: 'fa-solid fa-laptop-code' },
+      { label: 'Human Resources', to: '/courses?cat=hr', icon: 'fa-solid fa-user-tie' },
+      { label: 'Aviation', to: '/courses?cat=aviation', icon: 'fa-solid fa-plane' },
     ],
   },
   {
@@ -39,7 +40,7 @@ const NAV_ITEMS = [
   { label: 'Contact', to: '/contact' },
 ];
 
-export default function Header({ theme, toggleTheme }) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -125,17 +126,9 @@ export default function Header({ theme, toggleTheme }) {
 
         {/* Actions */}
         <div className={styles.actions}>
-          <button
-            className={styles.themeBtn}
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? '☀️' : '🌙'}
-          </button>
-
-          <Link to="/contact" className="btn btn--gradient btn--sm">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--sm" onClick={() => trackEvent({ eventName: 'Lead', category: 'Enrollment', label: 'Header Desktop CTA' })}>
             Enroll Now <span>→</span>
-          </Link>
+          </a>
 
           <button
             className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
@@ -217,9 +210,9 @@ export default function Header({ theme, toggleTheme }) {
           </ul>
 
           <div className={styles.mobileFooterActions}>
-            <Link to="/contact" className="btn btn--gradient btn--full" onClick={() => setMenuOpen(false)}>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--full" onClick={() => { setMenuOpen(false); trackEvent({ eventName: 'Lead', category: 'Enrollment', label: 'Header Mobile CTA' }); }}>
               Enroll Now <span>→</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

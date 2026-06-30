@@ -827,7 +827,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
-  align-items: start;
+  align-items: stretch;
 }
 
 .pricingCard {
@@ -840,6 +840,7 @@
   flex-direction: column;
   gap: var(--space-lg);
   position: relative;
+  height: 100%;
 }
 
 .pricingCard:hover {
@@ -851,10 +852,9 @@
   border-color: rgba(0,163,255,0.4);
   background: linear-gradient(135deg, rgba(0,163,255,0.06), rgba(139,92,246,0.06));
   box-shadow: var(--shadow-glow);
-  transform: scale(1.02);
 }
 
-.pricingCardPopular:hover { transform: scale(1.02) translateY(-4px); }
+.pricingCardPopular:hover { transform: translateY(-4px); }
 
 .popularBadge {
   position: absolute;
@@ -1011,7 +1011,6 @@
   .whyGrid { grid-template-columns: repeat(2, 1fr); }
   .guaranteeRow { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto var(--space-3xl); }
   .pricingGrid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
-  .pricingCardPopular { transform: scale(1); }
   .ctaGrid { grid-template-columns: 1fr; }
 }
 

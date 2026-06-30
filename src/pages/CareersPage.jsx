@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
 import styles from './CareersPage.module.css';
 
 const OPENINGS = [
@@ -104,8 +103,143 @@ const OPENINGS = [
         <path d="M60,60 L65,65" />
       </svg>
     ),
+  },
+  {
+    id: 6,
+    title: 'Graduate Business Development Intern (6 Months)',
+    category: 'Internships',
+    location: 'Remote',
+    type: 'Part Time',
+    applicants: '15+',
+    featured: false,
+    themeColor: '#00D4AA',
+    glowColor: 'rgba(0, 212, 170, 0.15)',
+    borderGlow: 'rgba(0, 212, 170, 0.25)',
+    skills: ['Communication', 'Research', 'Lead Generation', 'B2B Sales'],
+    desc: 'Kickstart your career in global EdTech and B2B services. Work closely with our directors on lead qualification, market research, and partnership pitches. Duration: 6 months.',
+    iconSvg: (
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="20" y="25" width="60" height="55" rx="5" />
+        <path d="M35,25 L35,15 C35,12 40,10 50,10 C60,10 65,12 65,15 L65,25" />
+      </svg>
+    ),
+  },
+  {
+    id: 7,
+    title: 'Content Creation & Copywriting Intern (1 Year)',
+    category: 'Internships',
+    location: 'Remote',
+    type: 'Part Time',
+    applicants: '28+',
+    featured: false,
+    themeColor: '#EC4899',
+    glowColor: 'rgba(236, 72, 153, 0.15)',
+    borderGlow: 'rgba(236, 72, 153, 0.25)',
+    skills: ['Content Writing', 'Copywriting', 'SEO', 'Creative Writing'],
+    desc: 'Develop high-impact curriculum support articles, study guides, and brand copywriting for the international academy. Mentored directly by senior content strategists. Duration: 1 year.',
+    iconSvg: (
+      <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M30,70 L70,70" />
+        <path d="M30,50 L70,50" />
+        <path d="M30,30 L55,30" />
+        <path d="M75,20 L80,25 L45,60 L35,65 L40,55 Z" />
+      </svg>
+    ),
   }
 ];
+
+/* ── Scroll-reveal hook ── */
+function useScrollReveal() {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return [ref, visible];
+}
+
+/* ── Particle canvas ── */
+function ParticleCanvas() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animId;
+    let particles = [];
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.r = Math.random() * 1.5 + 0.3;
+        this.vx = (Math.random() - 0.5) * 0.25;
+        this.vy = (Math.random() - 0.5) * 0.25;
+        this.alpha = Math.random() * 0.5 + 0.1;
+        const colors = ['0,163,255', '139,92,246', '0,212,170', '236,72,153'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      update() {
+        this.x += this.vx; this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color},${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 90; i++) particles.push(new Particle());
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // draw connection lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0,163,255,${0.07 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+        particles[i].update();
+        particles[i].draw();
+      }
+      animId = requestAnimationFrame(draw);
+    };
+    draw();
+
+    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize); };
+  }, []);
+
+  return <canvas ref={canvasRef} className={styles.particleCanvas} />;
+}
 
 export default function CareersPage() {
   const [search, setSearch] = useState('');
@@ -114,19 +248,26 @@ export default function CareersPage() {
   const [type, setType] = useState('All Types');
   const [bookmarked, setBookmarked] = useState({});
 
+  // Scroll reveal refs
+  const [badgeRef, badgeVisible] = useScrollReveal();
+  const [headingRef, headingVisible] = useScrollReveal();
+  const [descRef, descVisible] = useScrollReveal();
+  const [benefitsRef, benefitsVisible] = useScrollReveal();
+  const [btnRef, btnVisible] = useScrollReveal();
+  const [globeRef, globeVisible] = useScrollReveal();
+  const [statsRef, statsVisible] = useScrollReveal();
+  const [processRef, processVisible] = useScrollReveal();
+  const [rightColRef, rightColVisible] = useScrollReveal();
+
   useEffect(() => {
     document.title = 'Careers — ProFRONTIER International Online Academy';
     window.scrollTo(0, 0);
   }, []);
 
   const toggleBookmark = (id) => {
-    setBookmarked((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setBookmarked((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  // Filter logic
   const filteredOpenings = OPENINGS.filter((op) => {
     const matchesSearch = op.title.toLowerCase().includes(search.toLowerCase()) ||
       op.desc.toLowerCase().includes(search.toLowerCase()) ||
@@ -134,55 +275,89 @@ export default function CareersPage() {
     const matchesCategory = category === 'All Categories' || op.category === category;
     const matchesLocation = location === 'All Locations' || op.location === location;
     const matchesType = type === 'All Types' || op.type === type;
-
     return matchesSearch && matchesCategory && matchesLocation && matchesType;
   });
 
   return (
     <div className={styles.page}>
+      {/* ── Animated background layer ── */}
+      <div className={styles.bgLayer}>
+        <ParticleCanvas />
+        <div className={styles.bgOrb1} />
+        <div className={styles.bgOrb2} />
+        <div className={styles.bgOrb3} />
+        <div className={styles.bgGrid} />
+        <div className={styles.bgScanline} />
+      </div>
+
       <section className={styles.mainSection}>
         <div className="container">
           <div className={styles.mainLayout}>
-            {/* Left Column */}
+
+            {/* ── Left Column ── */}
             <div className={styles.leftColumn}>
-              <span className={styles.hiringBadge}>WE'RE HIRING</span>
-              <h1 className={styles.mainHeading}>
+
+              <span
+                ref={badgeRef}
+                className={`${styles.hiringBadge} ${badgeVisible ? styles.revealFadeUp : styles.hidden}`}
+              >
+                WE'RE HIRING
+              </span>
+
+              <h1
+                ref={headingRef}
+                className={`${styles.mainHeading} ${headingVisible ? styles.revealFadeUp : styles.hidden}`}
+                style={{ transitionDelay: '0.1s' }}
+              >
                 Join Our Global <span className="gradient-text">Educator Network</span>
               </h1>
-              <p className={styles.mainDesc}>
+
+              <p
+                ref={descRef}
+                className={`${styles.mainDesc} ${descVisible ? styles.revealFadeUp : styles.hidden}`}
+                style={{ transitionDelay: '0.18s' }}
+              >
                 Empower learners, inspire minds, and build a better future through education. Become a part of our mission to make quality learning accessible worldwide.
               </p>
 
-              <ul className={styles.benefitsList}>
-                <li>
-                  <span className={styles.checkIcon}><i className="fa-solid fa-circle-check"></i></span>
-                  Work from anywhere in the world
-                </li>
-                <li>
-                  <span className={styles.checkIcon}><i className="fa-solid fa-circle-check"></i></span>
-                  Flexible schedules & growth opportunities
-                </li>
-                <li>
-                  <span className={styles.checkIcon}><i className="fa-solid fa-circle-check"></i></span>
-                  Impact thousands of students globally
-                </li>
+              <ul
+                ref={benefitsRef}
+                className={`${styles.benefitsList} ${benefitsVisible ? styles.revealFadeUp : styles.hidden}`}
+                style={{ transitionDelay: '0.26s' }}
+              >
+                {['Work from anywhere in the world', 'Flexible schedules & growth opportunities', 'Impact thousands of students globally'].map((item, i) => (
+                  <li key={i} style={{ transitionDelay: `${0.26 + i * 0.09}s` }} className={benefitsVisible ? styles.revealFadeLeft : styles.hidden}>
+                    <span className={styles.checkIcon}><i className="fa-solid fa-circle-check"></i></span>
+                    {item}
+                  </li>
+                ))}
               </ul>
 
-              <a href="#open-positions" className="btn btn--gradient" style={{ alignSelf: 'flex-start', padding: '14px 32px' }}>
-                Explore Open Positions <span>→</span>
-              </a>
+              <div
+                ref={btnRef}
+                className={`${styles.btnRow} ${btnVisible ? styles.revealFadeUp : styles.hidden}`}
+                style={{ transitionDelay: '0.5s' }}
+              >
+                <a href="#open-positions" className="btn btn--gradient" style={{ alignSelf: 'flex-start', padding: '14px 32px' }}>
+                  Explore Open Positions <span>→</span>
+                </a>
+              </div>
 
-              {/* Animated Globe Illustration */}
-              <div className={styles.globeGraphicContainer}>
+              {/* Animated Globe */}
+              <div
+                ref={globeRef}
+                className={`${styles.globeGraphicContainer} ${globeVisible ? styles.revealScale : styles.hidden}`}
+                style={{ transitionDelay: '0.2s' }}
+              >
                 <div className={styles.globeWrapper}>
-                  {/* Central globe icon */}
                   <div className={styles.globeIconCircle}>
                     <i className="fa-solid fa-earth-americas"></i>
                   </div>
                   <div className={styles.globeOutline} />
+                  <div className={styles.globeOutline2} />
                   <div className={styles.globePulse} />
+                  <div className={styles.globePulse2} />
 
-                  {/* Floating profiles */}
                   <div className={`${styles.profileBubble} ${styles.bubbleTop}`}>
                     <img src="/assets/testimonials/sarah.png" alt="Educator" />
                   </div>
@@ -195,51 +370,45 @@ export default function CareersPage() {
                   <div className={`${styles.profileBubble} ${styles.bubbleLeft}`}>
                     <img src="/assets/testimonials/mohammed.png" alt="Educator" />
                   </div>
+
+                  {/* Orbiting dot */}
+                  <div className={styles.orbitRing}>
+                    <div className={styles.orbitDot} />
+                  </div>
                 </div>
               </div>
 
-              {/* Statistics Grid */}
-              <div className={styles.statsGrid}>
-                <div className={styles.statCard}>
-                  <div className={`${styles.statIcon} ${styles.iconBlue}`}>
-                    <i className="fa-solid fa-users"></i>
+              {/* Stats Grid */}
+              <div
+                ref={statsRef}
+                className={`${styles.statsGrid} ${statsVisible ? styles.revealFadeUp : styles.hidden}`}
+                style={{ transitionDelay: '0.1s' }}
+              >
+                {[
+                  { icon: 'fa-solid fa-users', cls: styles.iconBlue, val: '25+', label: 'Open Positions' },
+                  { icon: 'fa-solid fa-earth-americas', cls: styles.iconTeal, val: '15+', label: 'Countries' },
+                  { icon: 'fa-solid fa-graduation-cap', cls: styles.iconPurple, val: '5000+', label: 'Students Impacted' },
+                  { icon: 'fa-solid fa-award', cls: styles.iconPink, val: '150+', label: 'Expert Educators' },
+                ].map((s, i) => (
+                  <div
+                    key={i}
+                    className={`${styles.statCard} ${statsVisible ? styles.revealFadeUp : styles.hidden}`}
+                    style={{ transitionDelay: `${0.1 + i * 0.1}s` }}
+                  >
+                    <div className={`${styles.statIcon} ${s.cls}`}><i className={s.icon}></i></div>
+                    <div className={styles.statInfo}>
+                      <h3>{s.val}</h3>
+                      <p>{s.label}</p>
+                    </div>
                   </div>
-                  <div className={styles.statInfo}>
-                    <h3>25+</h3>
-                    <p>Open Positions</p>
-                  </div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={`${styles.statIcon} ${styles.iconTeal}`}>
-                    <i className="fa-solid fa-earth-americas"></i>
-                  </div>
-                  <div className={styles.statInfo}>
-                    <h3>15+</h3>
-                    <p>Countries</p>
-                  </div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={`${styles.statIcon} ${styles.iconPurple}`}>
-                    <i className="fa-solid fa-graduation-cap"></i>
-                  </div>
-                  <div className={styles.statInfo}>
-                    <h3>5000+</h3>
-                    <p>Students Impacted</p>
-                  </div>
-                </div>
-                <div className={styles.statCard}>
-                  <div className={`${styles.statIcon} ${styles.iconPink}`}>
-                    <i className="fa-solid fa-award"></i>
-                  </div>
-                  <div className={styles.statInfo}>
-                    <h3>150+</h3>
-                    <p>Expert Educators</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* Hiring Process */}
-              <div className={styles.hiringProcessSection}>
+              <div
+                ref={processRef}
+                className={`${styles.hiringProcessSection} ${processVisible ? styles.revealFadeUp : styles.hidden}`}
+              >
                 <h2 className={styles.processHeading}>Our Hiring Process</h2>
                 <div className={styles.processTimeline}>
                   {[
@@ -248,8 +417,12 @@ export default function CareersPage() {
                     { step: 3, title: 'Demo Session', desc: 'Showcase your teaching skills in a demo class.', icon: 'fa-solid fa-video', color: '#8B5CF6' },
                     { step: 4, title: 'Interview', desc: 'Connect with our team for an interview.', icon: 'fa-solid fa-user-check', color: '#EC4899' },
                     { step: 5, title: 'Offer Letter', desc: 'Receive your offer and welcome aboard!', icon: 'fa-solid fa-envelope', color: '#00A3FF' },
-                  ].map((item) => (
-                    <div key={item.step} className={styles.timelineItem}>
+                  ].map((item, i) => (
+                    <div
+                      key={item.step}
+                      className={`${styles.timelineItem} ${processVisible ? styles.revealFadeUp : styles.hidden}`}
+                      style={{ transitionDelay: `${i * 0.12}s` }}
+                    >
                       <div className={styles.stepCircleWrapper}>
                         <div className={styles.stepIconCircle} style={{ color: item.color, borderColor: item.color }}>
                           <i className={item.icon}></i>
@@ -264,14 +437,17 @@ export default function CareersPage() {
               </div>
             </div>
 
-            {/* Right Column */}
-            <div className={styles.rightColumn} id="open-positions">
+            {/* ── Right Column ── */}
+            <div
+              ref={rightColRef}
+              className={`${styles.rightColumn} ${rightColVisible ? styles.revealFadeRight : styles.hidden}`}
+              id="open-positions"
+            >
               <div className={styles.openPositionsHeader}>
                 <h2>Open Positions</h2>
                 <span className={styles.openCountBadge}>25+</span>
               </div>
 
-              {/* Search Box */}
               <div className={styles.searchBox}>
                 <i className="fa-solid fa-magnifying-glass"></i>
                 <input
@@ -282,19 +458,30 @@ export default function CareersPage() {
                 />
               </div>
 
-              {/* Filters */}
-              <div className={styles.filtersWrapper}>
-                <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                  <option value="All Categories">All Categories</option>
-                  <option value="Teaching">Teaching</option>
-                  <option value="Exam Prep">Exam Prep</option>
-                </select>
+              {/* Category Tabs */}
+              <div className={styles.categoryTabs}>
+                {[
+                  { id: 'All Categories', label: 'All Openings' },
+                  { id: 'Teaching', label: 'Teaching' },
+                  { id: 'Exam Prep', label: 'Exam Prep' },
+                  { id: 'Marketing', label: 'Marketing' },
+                  { id: 'Internships', label: 'Interns' }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    className={`${styles.tabBtn} ${category === tab.id ? styles.tabBtnActive : ''}`}
+                    onClick={() => setCategory(tab.id)}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
 
+              <div className={styles.filtersWrapper}>
                 <select value={location} onChange={(e) => setLocation(e.target.value)}>
                   <option value="All Locations">All Locations</option>
                   <option value="Remote">Remote</option>
                 </select>
-
                 <select value={type} onChange={(e) => setType(e.target.value)}>
                   <option value="All Types">All Types</option>
                   <option value="Full Time">Full Time</option>
@@ -302,18 +489,21 @@ export default function CareersPage() {
                 </select>
               </div>
 
-              {/* Jobs List */}
               <div className={styles.jobsList}>
-                {filteredOpenings.map((op) => (
+                {filteredOpenings.map((op, i) => (
                   <div
                     key={op.id}
-                    className={`${styles.jobCard} glow-card`}
+                    className={`${styles.jobCard} glow-card ${rightColVisible ? styles.revealFadeUp : styles.hidden}`}
                     style={{
                       '--accent-glow': op.glowColor,
                       '--border-glow': op.borderGlow,
                       '--accent-color': op.themeColor,
+                      transitionDelay: `${i * 0.1}s`,
                     }}
                   >
+                    {/* shimmer sweep */}
+                    <div className={styles.cardShimmer} />
+
                     <div
                       className={styles.jobBadge}
                       style={{
@@ -374,7 +564,6 @@ export default function CareersPage() {
                   </div>
                 )}
 
-                {/* Don't see the right fit? Card */}
                 <div className={styles.customCvCard}>
                   <div className={styles.customCvIcon}>
                     <i className="fa-solid fa-paper-plane"></i>
@@ -389,6 +578,7 @@ export default function CareersPage() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

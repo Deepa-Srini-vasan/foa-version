@@ -32,7 +32,7 @@ export default function CoursesPage() {
           </div>
           <span className="section__tag page-banner__tag">100+ PROGRAMS</span>
           <h1>All <span className="gradient-text">Courses</span></h1>
-          <p>Professional courses from Finance, IT, HR, Aviation, Languages, Soft Skills, Safety First — carefully assessed for quality and educational soundness.</p>
+          <p>Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation — carefully assessed for quality and educational soundness.</p>
         </div>
       </div>
 
@@ -74,7 +74,7 @@ export default function CoursesPage() {
 
           {/* Grid */}
           {filtered.length > 0 ? (
-            <div className={styles.grid}>
+            <div className={`${styles.grid} ${styles.fadeTransition}`} key={activeCat + '-' + (search ? 'has-search' : 'no-search')}>
               {filtered.map((c, i) => <CourseCard key={c.id} course={c} index={i} />)}
             </div>
           ) : (

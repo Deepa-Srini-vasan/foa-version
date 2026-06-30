@@ -54,7 +54,7 @@ export const team = [
 ];
 
 export const stats = [
-  { id: 'students', value: 15000, suffix: '+', label: 'Students Trained', icon: '🎓' },
+  { id: 'students', value: 10000, suffix: '+', label: 'Students Trained', icon: '🎓' },
   { id: 'courses', value: 100, suffix: '+', label: 'Online Courses', icon: '📚' },
   { id: 'success', value: 95, suffix: '%', label: 'Success Rate', icon: '📈' },
   { id: 'countries', value: 20, suffix: '+', label: 'Countries Served', icon: '🌐' },
@@ -62,12 +62,38 @@ export const stats = [
 
 export const contactInfo = {
   emails: [
+    'contact@profrontieracademy.com',
     'profrontieronlineacademy@gmail.com',
-    'info@ProFRONTIERonlinetraining.com',
   ],
-  phones: ['+965-55377150'],
-  address: 'Middle East, Kuwait | India',
+  phones: ['+965-22094240'], // Primary office line
+  address: 'Kuwait | India (Future Office: UAE)',
   mapLink: 'https://www.google.com/maps/place/Kuwait/',
+  offices: [
+    {
+      country: 'Kuwait',
+      name: 'Corporate Headquarters',
+      address: 'Salmiya, Salem Al Mubarak St, Kuwait',
+      phone: '+965-22094240',
+      mapLink: 'https://www.google.com/maps/place/Salmiya,+Kuwait/',
+      status: 'Active'
+    },
+    {
+      country: 'India',
+      name: 'Regional Operations Hub',
+      address: 'Kochi, Kerala, India',
+      phone: '+91-8848135835',
+      mapLink: 'https://www.google.com/maps/place/Kochi,+Kerala,+India/',
+      status: 'Active'
+    },
+    {
+      country: 'United Arab Emirates',
+      name: 'Regional Liaison Office',
+      address: 'Dubai, UAE',
+      phone: 'Online Support Only',
+      mapLink: 'https://www.google.com/maps/place/Dubai+-+United+Arab+Emirates/',
+      status: 'Opening Soon'
+    }
+  ],
   social: {
     facebook: 'https://www.facebook.com/share/18ffwZyg9p/',
     twitter: '#',

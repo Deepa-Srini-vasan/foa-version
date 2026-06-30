@@ -6,32 +6,29 @@ import TestimonialSlider from '../components/TestimonialSlider';
 import FAQItem from '../components/FAQItem';
 import AnimatedGridBg from '../components/AnimatedGridBg';
 import { stats } from '../data/team';
-import { courses } from '../data/courses';
+import { courses, featuredCourses } from '../data/courses';
 import { faqs } from '../data/faqs';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { getFaIcon } from '../utils/icons';
 import styles from './HomePage.module.css';
 
-const featuredCourses = courses.slice(0, 6);
-
 const WHY_US = [
-  { icon: 'fa-solid fa-comments', title: 'Understand How Your Mouth Shapes Sounds', desc: 'Discover how the way your mouth moves affects your pronunciation, giving you the tools to make meaningful and lasting improvements.' },
-  { icon: 'fa-solid fa-dumbbell', title: 'Develop Muscle Memory for Speech', desc: 'Train your speech muscles to produce new sounds effortlessly, so speaking feels natural and comfortable.' },
-  { icon: 'fa-solid fa-music', title: 'Learn to Analyze and Perfect Speech', desc: 'Explore the sounds and patterns of English through phonetics, gaining the skills to fine-tune your pronunciation with precision.' },
-  { icon: 'fa-solid fa-bullseye', title: 'Lessons Designed Just for You', desc: 'Every lesson is tailored to your unique language background, focusing on the areas that will make the biggest difference in how you speak.' },
-  { icon: 'fa-solid fa-volume-high', title: 'Find the Rhythm of English', desc: 'Discover the melody and flow of natural spoken English, helping you sound clear, authentic, and confident.' },
-  { icon: 'fa-solid fa-rocket', title: 'Speak with Clarity and Confidence', desc: 'Transform how you communicate, expressing yourself naturally and confidently in any situation, from interviews to boardroom presentations.' },
+  { icon: 'fa-solid fa-graduation-cap', title: 'British-Certified Master Trainers', desc: 'Learn from expert mentors certified by Oxford TEFL and Trinity College London, bringing global pedagogy standards straight to your screen.' },
+  { icon: 'fa-solid fa-shield-halved', title: 'Accredited Global Certifications', desc: 'Choose from over 100+ professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation designed to match global industry standards.' },
+  { icon: 'fa-solid fa-user-gear', title: 'End-to-End Success Tracking', desc: 'We do not just teach; we monitor and mentor your progress directly until you achieve your target IELTS, OET, PTE score or certification.' },
+  { icon: 'fa-solid fa-earth-asia', title: 'Seamless Study Abroad Pathways', desc: 'Get direct guidance, applications, and support for overseas education in top destinations like USA, UK, Canada, Australia, and Germany.' },
+  { icon: 'fa-solid fa-desktop', title: 'Smart Digital Classrooms', desc: 'Experience interactive high-definition live sessions, flexible schedules, and comprehensive lifetime study resources from anywhere.' },
+  { icon: 'fa-solid fa-award', title: 'Elite Student Success Rate', desc: 'Join thousands of successful professionals and students across 20+ countries who achieved their career goals with ProFRONTIER.' },
 ];
 
 const OFFERS = [
   { icon: 'fa-solid fa-chalkboard-user', title: 'Learn From Certified Experts', desc: 'Our trainers are British-certified from Oxford TEFL and Trinity College London. They track student progress until the end result and deliver high-quality training.', link: '/courses', linkText: 'View Courses' },
   { icon: 'fa-solid fa-plane', title: 'We Offer Overseas Education', desc: 'Overseas education offers students exposure to different cultures, languages, and educational systems, broadening their perspectives and enhancing personal and professional development.', link: '/overseas', linkText: 'Explore Overseas', featured: true },
-  { icon: 'fa-solid fa-trophy', title: '100+ Courses Available', desc: 'Professional courses from Finance, IT, Human Resource, Aviation, Languages, Soft Skills, Safety First — carefully assessed for quality and educational soundness.', link: '/courses', linkText: 'Browse All' },
+  { icon: 'fa-solid fa-trophy', title: '100+ Courses Available', desc: 'Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation — carefully assessed for quality and educational soundness.', link: '/courses', linkText: 'Browse All' },
 ];
 
 export default function HomePage() {
   const heroRef = useScrollReveal({ delay: 0 });
-  const [billingAnnual, setBillingAnnual] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [formMsg, setFormMsg] = useState('');
 
@@ -42,38 +39,7 @@ export default function HomePage() {
     setTimeout(() => setFormMsg(''), 5000);
   };
 
-  const pricingPlans = [
-    {
-      name: 'Basic', icon: 'fa-solid fa-seedling', desc: 'Perfect for individual exam prep',
-      monthly: 29, annual: 20,
-      features: [
-        { ok: true, text: '1 Course Access' }, { ok: true, text: 'Recorded Sessions' },
-        { ok: true, text: 'Free Study Materials' }, { ok: true, text: 'Free Demo Class' },
-        { ok: true, text: 'Community Forum' }, { ok: false, text: 'Live Classes' },
-        { ok: false, text: 'Mentor Sessions' }, { ok: false, text: 'Overseas Guidance' },
-      ],
-    },
-    {
-      name: 'Pro', icon: 'fa-solid fa-bolt', desc: 'Ideal for serious learners', popular: true,
-      monthly: 79, annual: 55,
-      features: [
-        { ok: true, text: '3 Course Access' }, { ok: true, text: 'Recorded + Live Sessions' },
-        { ok: true, text: 'Free Study Materials' }, { ok: true, text: 'Free Demo Class' },
-        { ok: true, text: 'Weekly Live Classes' }, { ok: true, text: '2 Mentor Sessions/mo' },
-        { ok: true, text: 'Discount Vouchers' }, { ok: false, text: 'Overseas Guidance' },
-      ],
-    },
-    {
-      name: 'Premium', icon: 'fa-solid fa-crown', desc: 'Complete transformation package',
-      monthly: 149, annual: 104,
-      features: [
-        { ok: true, text: 'Unlimited Course Access' }, { ok: true, text: 'All Sessions + Recordings' },
-        { ok: true, text: 'Free Study Materials' }, { ok: true, text: 'Daily Live Classes' },
-        { ok: true, text: 'Unlimited Mentorship' }, { ok: true, text: 'Scholarships Available' },
-        { ok: true, text: 'Overseas Guidance' }, { ok: true, text: '15-Day Money Back' },
-      ],
-    },
-  ];
+
 
   return (
     <div className={styles.page}>
@@ -125,7 +91,7 @@ export default function HomePage() {
           <div className="section__header">
             <span className="section__tag">WHAT WE OFFER FOR GROWTH</span>
             <h2 className="section__title">A Better Learning Era <span className="gradient-text">Starts Here!</span></h2>
-            <p className="section__desc">Professional courses from Finance, IT, HR, Aviation, Languages, Soft Skills & Safety — 100+ options</p>
+            <p className="section__desc">Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation — 100+ options</p>
           </div>
           <div className={styles.offerGrid}>
             {OFFERS.map((o, i) => (
@@ -230,7 +196,7 @@ export default function HomePage() {
           <div className="section__header">
             <span className="section__tag">OUR EDGE</span>
             <h2 className="section__title">Why is this the <span className="gradient-text">Best Choice?</span></h2>
-            <p className="section__desc">Every lesson is thoughtfully designed with your unique language background in mind</p>
+            <p className="section__desc">Unlocking academic excellence, global opportunities, and professional success through verified coaching excellence</p>
           </div>
           <div className={styles.whyGrid}>
             {WHY_US.map((w, i) => (
@@ -253,7 +219,7 @@ export default function HomePage() {
           <div className="section__header">
             <span className="section__tag">STUDENT SUCCESS STORIES</span>
             <h2 className="section__title">What Our <span className="gradient-text">Students Say</span></h2>
-            <p className="section__desc">Real results from real learners across 120+ countries</p>
+            <p className="section__desc">Real results from real learners across 20+ countries</p>
           </div>
           <div className={styles.guaranteeRow}>
             {[
@@ -271,66 +237,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRICING ───────────────────────────────── */}
-      <section className="section" id="pricing">
-        <AnimatedGridBg />
-        <div className="container">
-          <div className="section__header">
-            <span className="section__tag">INVEST IN YOURSELF</span>
-            <h2 className="section__title">Simple, Transparent <span className="gradient-text">Pricing</span></h2>
-            <p className="section__desc">Choose a plan that fits your goals. Free demo for every first class!</p>
-          </div>
-          <div className={styles.pricingToggle}>
-            <span className={!billingAnnual ? styles.toggleActive : ''}>Monthly</span>
-            <button
-              className={styles.toggleSwitch}
-              onClick={() => setBillingAnnual((a) => !a)}
-              aria-label="Toggle billing"
-              role="switch"
-              aria-checked={billingAnnual}
-            >
-              <span className={`${styles.toggleThumb} ${billingAnnual ? styles.toggleThumbOn : ''}`} />
-            </button>
-            <span className={billingAnnual ? styles.toggleActive : ''}>
-              Annual <span className={styles.saveBadge}>Save 30%</span>
-            </span>
-          </div>
-          <div className={styles.pricingGrid}>
-            {pricingPlans.map((p, i) => (
-              <div key={p.name} className={`${styles.pricingCard} ${p.popular ? styles.pricingCardPopular : ''} reveal reveal--delay-${i + 1} glow-card`}>
-                {p.popular && <div className={styles.popularBadge}>Most Popular</div>}
-                <div className={styles.pricingHeader}>
-                  <span className={styles.pricingIcon}><i className={getFaIcon(p.icon)}></i></span>
-                  <h3>{p.name}</h3>
-                  <p>{p.desc}</p>
-                </div>
-                <div className={styles.pricingPrice}>
-                  <span className={styles.priceCurr}>$</span>
-                  <span className={styles.priceAmt}>{billingAnnual ? p.annual : p.monthly}</span>
-                  <span className={styles.pricePer}>/mo</span>
-                </div>
-                <ul className={styles.pricingFeatures}>
-                  {p.features.map((f) => (
-                    <li key={f.text} className={f.ok ? styles.featureYes : styles.featureNo}>
-                      <span>
-                        {f.ok ? (
-                          <i className="fa-solid fa-check" style={{ color: 'var(--teal)' }}></i>
-                        ) : (
-                          <i className="fa-solid fa-xmark" style={{ color: '#EF4444' }}></i>
-                        )}
-                      </span>{' '}
-                      {f.text}
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/contact" className={`btn btn--full ${p.popular ? 'btn--gradient' : 'btn--outline'}`}>
-                  Get Started →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── FAQ PREVIEW ───────────────────────────── */}
       <section className="section">
@@ -368,13 +275,13 @@ export default function HomePage() {
                   <i className="fa-solid fa-envelope" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
                   profrontieronlineacademy@gmail.com
                 </a>
-                <a href="tel:+96555377150" className={styles.ctaContactItem}>
+                <a href="tel:+96522094240" className={styles.ctaContactItem}>
                   <i className="fa-solid fa-phone" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
-                  +965-55377150
+                  +965-22094240
                 </a>
                 <div className={styles.ctaContactItem}>
                   <i className="fa-solid fa-location-dot" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
-                  Middle East, Kuwait | India
+                  Kuwait | India (Future Office: UAE)
                 </div>
               </div>
             </div>

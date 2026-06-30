@@ -38,14 +38,14 @@
   display: none;
 }
 
-.visible.left,
-.visible.right {
+.left,
+.right {
   opacity: 0.5;
   transform: scale(0.9);
   filter: blur(1px);
 }
 
-.visible.center {
+.center {
   opacity: 1;
   transform: scale(1);
   filter: none;
@@ -65,7 +65,20 @@
   flex-direction: column;
   flex-grow: 1;
   gap: var(--space-xs);
-  overflow: hidden;
+  position: relative;
+}
+
+.quoteWrapper::before {
+  content: '“';
+  position: absolute;
+  top: -24px;
+  left: -8px;
+  font-size: 6.5rem;
+  font-family: 'Sora', Georgia, serif;
+  color: rgba(0, 163, 255, 0.07);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .quote {
@@ -75,6 +88,8 @@
   font-style: italic;
   flex: 1;
   quotes: none;
+  position: relative;
+  z-index: 1;
 }
 
 .readMore {
@@ -85,6 +100,8 @@
   align-items: center;
   margin-top: auto;
   transition: var(--transition-fast);
+  position: relative;
+  z-index: 2;
 }
 
 .card:hover .readMore {
@@ -114,6 +131,9 @@
   color: white;
   flex-shrink: 0;
   overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 15px rgba(0, 163, 255, 0.18);
+  transition: all 0.3s ease;
 }
 
 .avatarImg {

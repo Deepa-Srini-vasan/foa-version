@@ -20,19 +20,19 @@ export const faqs = [
     id: 4,
     question: 'How can students make payment?',
     answer:
-      'There are different modes of payment options available. For more information, contact our customer service team at +965-55377150.',
+      'There are different modes of payment options available. For more information, contact our customer service team at +965-22094240.',
   },
   {
     id: 5,
     question: 'What discounts can I avail?',
     answer:
-      'We have fantastic discount vouchers and scholarships available always. For more information, contact our customer service team at +965-55377150.',
+      'We have fantastic discount vouchers and scholarships available always. For more information, contact our customer service team at +965-22094240.',
   },
   {
     id: 6,
     question: 'Can students request a refund?',
     answer:
-      'Yes, they can request a refund if they meet certain conditions. For more information, contact our customer service team at +965-55377150.',
+      'Yes, they can request a refund if they meet certain conditions. For more information, contact our customer service team at +965-22094240.',
   },
   {
     id: 7,
@@ -69,35 +69,4 @@ export const faqs = [
   },
 ];
 
-export const generalFaqs = [
-  {
-    id: 13,
-    question: "What's the difference between a college and a university?",
-    answer:
-      'Colleges offer only undergraduate degrees while universities offer graduate degrees as well, but the terms are often used interchangeably.',
-  },
-  {
-    id: 14,
-    question: 'What are the different types of undergraduate degrees?',
-    answer:
-      'Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.',
-  },
-  {
-    id: 15,
-    question: 'What are the different types of graduate degrees?',
-    answer:
-      'Masters: two-year degree providing additional specialisation. Doctorate: five to eight-year program certifying the student as a trained research scholar and/or professor.',
-  },
-  {
-    id: 16,
-    question: 'Can you work while studying in the United States?',
-    answer:
-      'With permission of the International Student Office, international students may work on campus up to 20 hours/week their first year and can apply to work off-campus in subsequent years.',
-  },
-  {
-    id: 17,
-    question: 'What is distance education?',
-    answer:
-      'Distance education occurs when a student and an instructor are in different places. Learning occurs by mail, telephone, internet, or by other means.',
-  },
-];
+

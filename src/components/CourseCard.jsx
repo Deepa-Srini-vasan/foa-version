@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { getFaIcon } from '../utils/icons';
+import { trackEvent } from '../utils/analytics';
 import styles from './CourseCard.module.css';
 
 export default function CourseCard({ course, index = 0 }) {
@@ -57,18 +58,15 @@ export default function CourseCard({ course, index = 0 }) {
           </span>
         </div>
 
-        <div className={styles.level}>
-          <span className={styles.levelDot} />
-          {course.level}
-        </div>
+
 
         <div className={styles.actions}>
-          <Link to={`/courses/${course.slug}`} className="btn btn--outline btn--sm">
+          <Link to={`/courses/${course.slug}`} className="btn btn--outline btn--sm" onClick={() => trackEvent({ eventName: 'CourseView', category: 'Catalog', label: course.title })}>
             View Details
           </Link>
-          <Link to="/contact" className="btn btn--gradient btn--sm">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--sm" onClick={() => trackEvent({ eventName: 'Lead', category: 'Enrollment', label: `Card: ${course.title}` })}>
             Enroll Now →
-          </Link>
+          </a>
         </div>
       </div>
     </div>

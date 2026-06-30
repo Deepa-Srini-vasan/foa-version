@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PageBanner from '../components/PageBanner';
 import FAQItem from '../components/FAQItem';
 import FaqBackground from '../components/FaqBackground';
-import { faqs, generalFaqs } from '../data/faqs';
+import { faqs } from '../data/faqs';
 import styles from './FaqsPage.module.css';
 
 export default function FaqsPage() {
@@ -19,13 +20,7 @@ export default function FaqsPage() {
       f.answer.toLowerCase().includes(search.toLowerCase())
   );
 
-  const filteredGeneralFaqs = generalFaqs.filter(
-    (f) =>
-      f.question.toLowerCase().includes(search.toLowerCase()) ||
-      f.answer.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const hasResults = filteredFaqs.length > 0 || filteredGeneralFaqs.length > 0;
+  const hasResults = filteredFaqs.length > 0;
 
   return (
     <div>
@@ -60,32 +55,10 @@ export default function FaqsPage() {
           </div>
 
           {hasResults ? (
-            <div className={styles.faqSections}>
-              {filteredFaqs.length > 0 && (
-                <div className={`${styles.sectionBlock} reveal`}>
-                  <h2 className={styles.sectionTitle}>Academy & Courses</h2>
-                  <div className={styles.faqList}>
-                    {filteredFaqs.map((faq, idx) => (
-                      <FAQItem key={faq.id} faq={faq} index={idx} />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {filteredGeneralFaqs.length > 0 && (
-                <div className={`${styles.sectionBlock} reveal`}>
-                  <h2 className={styles.sectionTitle}>General & Studying Abroad</h2>
-                  <div className={styles.faqList}>
-                    {filteredGeneralFaqs.map((faq, idx) => (
-                      <FAQItem
-                        key={faq.id}
-                        faq={faq}
-                        index={filteredFaqs.length + idx}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
+            <div className={styles.faqList} style={{ marginTop: 'var(--space-2xl)' }}>
+              {filteredFaqs.map((faq, idx) => (
+                <FAQItem key={faq.id} faq={faq} index={idx} />
+              ))}
             </div>
           ) : (
             <div className={styles.noResults}>
@@ -105,11 +78,11 @@ export default function FaqsPage() {
               <p>Our counselors and support team are here to help you. Speak to us directly for tailored guidance.</p>
             </div>
             <div className={styles.helpActions}>
-              <a href="/contact" className="btn btn--gradient">
+              <Link to="/contact" className="btn btn--gradient">
                 Contact Counselor →
-              </a>
-              <a href="tel:+96555377150" className="btn btn--outline">
-                Call +965-55377150
+              </Link>
+              <a href="tel:+96522094240" className="btn btn--outline">
+                Call +965-22094240
               </a>
             </div>
           </div>

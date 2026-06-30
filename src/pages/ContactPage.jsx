@@ -4,6 +4,7 @@ import PageBanner from '../components/PageBanner';
 import { contactInfo } from '../data/team';
 import { courses } from '../data/courses';
 import { countries } from '../data/overseas';
+import { trackEvent } from '../utils/analytics';
 import styles from './ContactPage.module.css';
 
 export default function ContactPage() {
@@ -21,6 +22,7 @@ export default function ContactPage() {
     inquiryType: initialType === 'it-services' ? 'it' : '',
     message: '',
   });
+  const [touched, setTouched] = useState({});
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState({ show: false, message: '', isSuccess: true });
 
@@ -32,6 +34,24 @@ export default function ContactPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
+
+  const getValidationClass = (name) => {
+    if (!touched[name]) return '';
+    const val = form[name] || '';
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(val) ? styles.validInput : styles.invalidInput;
+    }
+    if (name === 'phone') {
+      return val.trim().length >= 8 ? styles.validInput : styles.invalidInput;
+    }
+    return val.trim().length > 0 ? styles.validInput : styles.invalidInput;
   };
 
   const showToastMsg = (msg, success = true) => {
@@ -51,6 +71,14 @@ export default function ContactPage() {
 
     setLoading(true);
 
+    // Track business lead conversion event
+    trackEvent({
+      eventName: 'ContactSubmit',
+      category: 'Inquiry',
+      label: form.inquiryType || 'General Enquiry',
+      value: 1
+    });
+
     // Simulate API call
     setTimeout(() => {
       setLoading(false);
@@ -65,6 +93,7 @@ export default function ContactPage() {
         inquiryType: '',
         message: '',
       });
+      setTouched({});
     }, 1200);
   };
 
@@ -117,6 +146,8 @@ export default function ContactPage() {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={getValidationClass('name')}
                       placeholder="Enter your full name"
                       required
                     />
@@ -134,6 +165,8 @@ export default function ContactPage() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getValidationClass('email')}
                         placeholder="name@example.com"
                         required
                       />
@@ -150,6 +183,8 @@ export default function ContactPage() {
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getValidationClass('phone')}
                         placeholder="+965-XXXX-XXXX"
                         required
                       />
@@ -165,7 +200,7 @@ export default function ContactPage() {
                       <select
                         id="course"
                         name="course"
-                        value={form.course}
+                        value={form.course || ''}
                         onChange={handleChange}
                       >
                         <option value="">Select a Course</option>
@@ -185,7 +220,7 @@ export default function ContactPage() {
                       <select
                         id="country"
                         name="country"
-                        value={form.country}
+                        value={form.country || ''}
                         onChange={handleChange}
                       >
                         <option value="">Select a Country</option>
@@ -207,7 +242,7 @@ export default function ContactPage() {
                       <select
                         id="service"
                         name="service"
-                        value={form.service}
+                        value={form.service || ''}
                         onChange={handleChange}
                       >
                         <option value="">Select a Service (If Applicable)</option>
@@ -228,7 +263,7 @@ export default function ContactPage() {
                       <select
                         id="inquiryType"
                         name="inquiryType"
-                        value={form.inquiryType}
+                        value={form.inquiryType || ''}
                         onChange={handleChange}
                       >
                         <option value="">Select Inquiry Type</option>
@@ -250,6 +285,8 @@ export default function ContactPage() {
                       name="message"
                       value={form.message}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={getValidationClass('message')}
                       placeholder="Tell us about your learning goals..."
                       required
                     />
@@ -299,24 +336,36 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Location Card */}
-              <div className={`${styles.infoCard} reveal reveal--delay-3`}>
-                <div className={`${styles.infoIconCircle} ${styles.blueIcon}`}>
-                  <i className="fa-solid fa-location-dot"></i>
+              {/* Location Cards */}
+              {contactInfo.offices && contactInfo.offices.map((office, idx) => (
+                <div key={office.country} className={`${styles.infoCard} ${styles.officeCard} reveal reveal--delay-${3 + idx}`}>
+                  <div className={`${styles.infoIconCircle} ${idx % 2 === 0 ? styles.blueIcon : styles.purpleIcon}`}>
+                    <i className="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div className={styles.infoText}>
+                    <div className={styles.officeHeader}>
+                      <h4>{office.country} Office</h4>
+                      <span className={`${styles.statusBadge} ${office.status === 'Active' ? styles.statusActive : styles.statusComing}`}>
+                        {office.status}
+                      </span>
+                    </div>
+                    <p className={styles.officeName}>{office.name}</p>
+                    <p className={styles.officeAddress}>{office.address}</p>
+                    <p className={styles.officePhone}>
+                      <i className="fa-solid fa-phone" style={{ marginRight: '6px', fontSize: '11px', opacity: 0.7 }}></i>
+                      {office.phone}
+                    </p>
+                    <a
+                      href={office.mapLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.mapLink}
+                    >
+                      View on Google Maps →
+                    </a>
+                  </div>
                 </div>
-                <div className={styles.infoText}>
-                  <h4>Location / Address</h4>
-                  <p>{contactInfo.address}</p>
-                  <a
-                    href={contactInfo.mapLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.mapLink}
-                  >
-                    View on Google Maps →
-                  </a>
-                </div>
-              </div>
+              ))}
 
               {/* Hours Card */}
               <div className={`${styles.infoCard} reveal reveal--delay-4`}>
