@@ -201,52 +201,68 @@ export default function OverseasPage() {
               return (
                 <div
                   key={c.id}
-                  className={`${styles.countryCard} reveal reveal--delay-${(i % 3) + 1} glow-card`}
+                  className={`${styles.cardContainer} reveal reveal--delay-${(i % 3) + 1}`}
                   style={{
                     '--accent-glow': theme.glowColor,
                     '--border-glow': theme.borderGlow,
                     '--accent-color': theme.accentColor,
                   }}
                 >
-                  <div
-                    className={styles.countryBadge}
-                    style={{
-                      borderColor: theme.accentColor,
-                      color: theme.accentColor,
-                      boxShadow: `0 0 20px ${theme.glowColor}`,
-                    }}
-                  >
-                    {theme.iconSvg}
-                  </div>
-                  <div className={styles.countryInfo}>
-                    <div className={styles.countryCardHeader}>
-                      <h3>{c.name}</h3>
-                      <Link to={`/overseas/${c.slug}`} className={styles.learnMoreBtn}>
-                        Learn More →
-                      </Link>
+                  <div className={styles.countryCard}>
+                    {/* Front Side */}
+                    <div className={styles.cardFront}>
+                      <div
+                        className={styles.countryBadge}
+                        style={{
+                          borderColor: theme.accentColor,
+                          color: theme.accentColor,
+                          boxShadow: `0 0 20px ${theme.glowColor}`,
+                        }}
+                      >
+                        {theme.iconSvg}
+                      </div>
+                      <div className={styles.countryInfo}>
+                        <div className={styles.countryCardHeader}>
+                          <h3>{c.name}</h3>
+                          <span className={styles.hoverTip}>Hover to flip 🔄</span>
+                        </div>
+                        <p className={styles.countryTagline} style={{ color: theme.subColor }}>
+                          {c.tagline}
+                        </p>
+                        <p className={styles.countryDescFront}>
+                          {c.description}
+                        </p>
+                        <div className={styles.countryMeta}>
+                          <span className={styles.metaBadge}>
+                            <i className="fa-solid fa-building-columns" style={{ marginRight: '6px' }}></i>
+                            {c.topUniversities.length} Top Universities
+                          </span>
+                          <span className={styles.metaBadge}>
+                            <i className="fa-regular fa-calendar" style={{ marginRight: '6px' }}></i>
+                            Intake: {c.intakeMonths.join(' & ')}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <p className={styles.countryTagline} style={{ color: theme.subColor }}>
-                      {c.tagline}
-                    </p>
-                    <p className={styles.countryDesc}>
-                      {c.description}
-                    </p>
-                    <div className={styles.countryMeta}>
-                      <span className={styles.metaBadge}>
-                        <i className="fa-solid fa-building-columns" style={{ marginRight: '6px' }}></i>
-                        {c.topUniversities.length} Top Universities
-                      </span>
-                      <span className={styles.metaBadge}>
-                        <i className="fa-regular fa-calendar" style={{ marginRight: '6px' }}></i>
-                        Intake: {c.intakeMonths.join(' & ')}
-                      </span>
-                    </div>
+
+                    {/* Back Side */}
+                    <Link to={`/overseas/${c.slug}`} className={styles.cardBack}>
+                      <img
+                        src={`/assets/countries/${c.slug}.png`}
+                        alt={c.name}
+                        className={styles.backImage}
+                      />
+                      <div className={styles.backOverlay} />
+                      <div className={styles.backContent}>
+                        <span className={styles.backFlag}>{c.flag}</span>
+                        <h3>Study in {c.name}</h3>
+                        <p>{c.tagline}</p>
+                        <span className={styles.exploreBtn}>
+                          Explore Program →
+                        </span>
+                      </div>
+                    </Link>
                   </div>
-                  <img
-                    src={`/assets/countries/${c.slug}.png`}
-                    alt=""
-                    className={styles.countryBgImage}
-                  />
                 </div>
               );
             })}

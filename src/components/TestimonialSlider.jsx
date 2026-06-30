@@ -88,11 +88,13 @@ export default function TestimonialSlider() {
               </div>
               <div className={styles.author}>
                 <div className={styles.avatar}>
-                  {t.image ? (
-                    <img src={t.image} alt={t.name} className={styles.avatarImg} />
-                  ) : (
-                    t.avatar
-                  )}
+                  <div className={styles.avatarInner}>
+                    {t.image ? (
+                      <img src={t.image} alt={t.name} className={styles.avatarImg} />
+                    ) : (
+                      t.avatar
+                    )}
+                  </div>
                 </div>
                 <div className={styles.authorInfo}>
                   <strong>{t.name}</strong>

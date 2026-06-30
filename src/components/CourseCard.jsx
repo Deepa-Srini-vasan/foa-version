@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { getFaIcon } from '../utils/icons';
 import { trackEvent } from '../utils/analytics';
+import { getCourseLink } from '../data/courseUrls';
 import styles from './CourseCard.module.css';
 
 export default function CourseCard({ course, index = 0 }) {
@@ -61,9 +62,28 @@ export default function CourseCard({ course, index = 0 }) {
 
 
         <div className={styles.actions}>
-          <Link to={`/courses/${course.slug}`} className="btn btn--outline btn--sm" onClick={() => trackEvent({ eventName: 'CourseView', category: 'Catalog', label: course.title })}>
-            View Details
-          </Link>
+          {(() => {
+            const link = getCourseLink(course.slug || course.id);
+            return link.isExternal ? (
+              <a
+                href={link.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--outline btn--sm"
+                onClick={() => trackEvent({ eventName: 'CourseView', category: 'Catalog', label: course.title })}
+              >
+                View Details
+              </a>
+            ) : (
+              <Link
+                to={link.to}
+                className="btn btn--outline btn--sm"
+                onClick={() => trackEvent({ eventName: 'CourseView', category: 'Catalog', label: course.title })}
+              >
+                View Details
+              </Link>
+            );
+          })()}
           <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--sm" onClick={() => trackEvent({ eventName: 'Lead', category: 'Enrollment', label: `Card: ${course.title}` })}>
             Enroll Now →
           </a>

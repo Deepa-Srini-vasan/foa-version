@@ -119,29 +119,67 @@
 }
 
 .avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  background: var(--gradient);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(0, 163, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  padding: 2.5px;
+}
+
+.avatar::before {
+  content: '';
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  background: conic-gradient(from 0deg, var(--blue), var(--teal), var(--purple), var(--blue));
+  animation: avatarSpin 3.5s linear infinite;
+  z-index: -2;
+}
+
+.avatarInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(8, 15, 32, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: var(--font-size-sm);
   color: white;
-  flex-shrink: 0;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 0 15px rgba(0, 163, 255, 0.18);
-  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .avatarImg {
   width: 100%;
   height: 100%;
-  border-radius: inherit;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .avatar {
+  box-shadow: 0 0 25px rgba(0, 212, 170, 0.5);
+  transform: scale(1.08) rotate(3deg);
+}
+
+.card:hover .avatarImg {
+  transform: scale(1.15);
+}
+
+@keyframes avatarSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .authorInfo {

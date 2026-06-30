@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { trackEvent } from '../utils/analytics';
+import { getCourseLink } from '../data/courseUrls';
 import styles from './Header.module.css';
 
 const NAV_ITEMS = [
@@ -40,6 +41,66 @@ const NAV_ITEMS = [
   { label: 'Contact', to: '/contact' },
 ];
 
+const COURSE_DROPDOWN_SECTIONS = [
+  {
+    title: 'English & Exam Prep',
+    courses: [
+      { label: 'IELTS Preparation', id: 'ielts' },
+      { label: 'OET Preparation', id: 'oet' },
+      { label: 'PTE Academic', id: 'pte' },
+      { label: 'TOEFL', id: 'toefl' },
+      { label: 'APTIS', id: 'aptis' },
+      { label: 'APTIS Arabic', id: 'aptis-arabic' },
+      { label: 'Cambridge English', id: 'cambridge-english' },
+      { label: 'Business English', id: 'business-english' },
+      { label: 'Basic English', id: 'basic-english' },
+      { label: 'Intermediate English', id: 'intermediate-english' },
+      { label: 'Advanced English', id: 'advanced-english' },
+    ]
+  },
+  {
+    title: 'Health & Soft Skills',
+    courses: [
+      { label: 'CPHQ Training', id: 'cphq' },
+      { label: 'CPHRM Training', id: 'cphrm' },
+      { label: 'CPPS Training', id: 'cpps' },
+      { label: 'Personality Dev (PDP)', id: 'pdp' },
+      { label: 'LinkedIn Optimization', id: 'linkedin-optimization' },
+      { label: 'Leadership Skills', id: 'leadership' },
+      { label: 'Interview Skills', id: 'interview' },
+      { label: 'TRIPLE Program', id: 'triple' }
+    ]
+  },
+  {
+    title: 'Languages',
+    courses: [
+      { label: 'Basic Arabic (BAC)', id: 'basic-arabic-communication' },
+      { label: 'Business Arabic (BAA)', id: 'business-arabic-academy' },
+      { label: 'French Language', id: 'french' },
+      { label: 'German Language', id: 'german' },
+      { label: 'Chinese Language', id: 'chinese' },
+      { label: 'Japanese Language', id: 'japanese' },
+      { label: 'Turkish Language', id: 'turkish' }
+    ]
+  },
+  {
+    title: 'Professional & Tech',
+    courses: [
+      { label: 'CMA Certification', id: 'cma' },
+      { label: 'CPA Certification', id: 'cpa' },
+      { label: 'ACCA', id: 'acca' },
+      { label: 'CFM Certification', id: 'cfm' },
+      { label: 'CFA Certification', id: 'cfa' },
+      { label: 'Microsoft Excel', id: 'excel' },
+      { label: 'C++ Programming', id: 'cpp' },
+      { label: 'HRCI Certification', id: 'hrci' },
+      { label: 'SHRM Certification', id: 'shrm' },
+      { label: 'Cabin Crew Training', id: 'cabin-crew' },
+      { label: 'Airport Management', id: 'airport-management' }
+    ]
+  }
+];
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -77,69 +138,104 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header ref={headerRef} className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-      <nav className={`${styles.nav} container`}>
-        {/* Logo */}
-        <Link to="/" className={styles.logo}>
-          <img
-            src="/assets/categories/fronts.png"
-            alt="ProFRONTIER International Online Academy"
-            className={styles.logoImage}
-          />
-        </Link>
+    <>
+      <header ref={headerRef} className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+        <nav className={`${styles.nav} container`}>
+          {/* Logo */}
+          <Link to="/" className={styles.logo}>
+            <img
+              src="/assets/categories/fronts.png"
+              alt="ProFRONTIER International Online Academy"
+              className={styles.logoImage}
+            />
+          </Link>
 
-        {/* Desktop Nav */}
-        <ul className={styles.menu}>
-          {NAV_ITEMS.map((item) => (
-            <li
-              key={item.label}
-              className={`${styles.menuItem} ${item.dropdown ? styles.hasDropdown : ''}`}
-              onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <NavLink
-                to={item.to}
-                end={item.to === '/'}
-                className={({ isActive }) =>
-                  `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
-                }
+          {/* Desktop Nav */}
+          <ul className={styles.menu}>
+            {NAV_ITEMS.map((item) => (
+              <li
+                key={item.label}
+                className={`${styles.menuItem} ${item.dropdown ? styles.hasDropdown : ''}`}
+                onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item.label}
-                {item.dropdown && <span className={styles.arrow}>▾</span>}
-              </NavLink>
+                <NavLink
+                  to={item.to}
+                  end={item.to === '/'}
+                  className={({ isActive }) =>
+                    `${styles.navLink} ${isActive ? styles.navLinkActive : ''}`
+                  }
+                >
+                  {item.label}
+                  {item.dropdown && <span className={styles.arrow}>▾</span>}
+                </NavLink>
 
-              {item.dropdown && activeDropdown === item.label && (
-                <ul className={styles.dropdown}>
-                  {item.dropdown.map((d) => (
-                    <li key={d.label}>
-                      <Link to={d.to} className={styles.dropdownLink}>
-                        <i className={d.icon} style={{ marginRight: '8px', opacity: 0.8 }}></i>
-                        {d.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
+                {item.dropdown && activeDropdown === item.label && (
+                  item.label === 'Courses' ? (
+                    <div className={styles.megaDropdown}>
+                      {COURSE_DROPDOWN_SECTIONS.map((section) => (
+                        <div key={section.title} className={styles.megaCol}>
+                          <h4 className={styles.megaTitle}>{section.title}</h4>
+                          <ul className={styles.megaList}>
+                            {section.courses.map((c) => {
+                              const link = getCourseLink(c.id);
+                              return (
+                                <li key={c.id}>
+                                  {link.isExternal ? (
+                                    <a
+                                      href={link.to}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className={styles.dropdownLink}
+                                    >
+                                      {c.label}
+                                    </a>
+                                  ) : (
+                                    <Link to={link.to} className={styles.dropdownLink}>
+                                      {c.label}
+                                    </Link>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className={styles.dropdown}>
+                      {item.dropdown.map((d) => (
+                        <li key={d.label}>
+                          <Link to={d.to} className={styles.dropdownLink}>
+                            <i className={d.icon} style={{ marginRight: '8px', opacity: 0.8 }}></i>
+                            {d.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )
+                )}
+              </li>
+            ))}
+          </ul>
 
-        {/* Actions */}
-        <div className={styles.actions}>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--sm" onClick={() => trackEvent({ eventName: 'Lead', category: 'Enrollment', label: 'Header Desktop CTA' })}>
-            Enroll Now <span>→</span>
-          </a>
+          {/* Actions */}
+          <div className={styles.actions}>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiM_tq3c_2lB08z5j86KoxYjXlq0uBvX9N6t3G_B-gTz40g/viewform" target="_blank" rel="noopener noreferrer" className="btn btn--gradient btn--sm" onClick={() => trackEvent({ eventName: 'Lead', category: 'Enrollment', label: 'Header Desktop CTA' })}>
+              Enroll Now <span>→</span>
+            </a>
 
-          <button
-            className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-          >
-            <span /><span /><span />
-          </button>
-        </div>
-      </nav>
+            <button
+              className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
+        </nav>
+      </header>
 
       {/* Mobile Overlay & Slide-in Drawer */}
       <div className={`${styles.mobileContainer} ${menuOpen ? styles.mobileOpen : ''}`}>
@@ -178,18 +274,69 @@ export default function Header() {
                         <i className={`fa-solid fa-chevron-down ${styles.mobileArrow} ${isExpanded ? styles.rotated : ''}`}></i>
                       </button>
                       <ul className={`${styles.mobileDropdown} ${isExpanded ? styles.showDropdown : ''}`}>
-                        {item.dropdown.map((d) => (
-                          <li key={d.label}>
-                            <Link
-                              to={d.to}
-                              className={styles.mobileDropdownLink}
-                              onClick={() => setMenuOpen(false)}
-                            >
-                              <i className={d.icon} style={{ marginRight: '8px', opacity: 0.8 }}></i>
-                              {d.label}
-                            </Link>
-                          </li>
-                        ))}
+                        {item.label === 'Courses' ? (
+                          COURSE_DROPDOWN_SECTIONS.map((section) => {
+                            const isSectionExpanded = !!mobileDropdowns[`Courses_${section.title}`];
+                            return (
+                              <li key={section.title} className={styles.mobileSubItem}>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setMobileDropdowns((prev) => ({
+                                      ...prev,
+                                      [`Courses_${section.title}`]: !prev[`Courses_${section.title}`],
+                                    }));
+                                  }}
+                                  className={styles.mobileSubToggle}
+                                >
+                                  {section.title}
+                                  <i className={`fa-solid fa-chevron-down ${styles.mobileSubArrow} ${isSectionExpanded ? styles.rotated : ''}`}></i>
+                                </button>
+                                <ul className={`${styles.mobileSubDropdown} ${isSectionExpanded ? styles.showSubDropdown : ''}`}>
+                                  {section.courses.map((c) => {
+                                    const link = getCourseLink(c.id);
+                                    return (
+                                      <li key={c.id}>
+                                        {link.isExternal ? (
+                                          <a
+                                            href={link.to}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.mobileDropdownLink}
+                                            onClick={() => setMenuOpen(false)}
+                                          >
+                                            {c.label}
+                                          </a>
+                                        ) : (
+                                          <Link
+                                            to={link.to}
+                                            className={styles.mobileDropdownLink}
+                                            onClick={() => setMenuOpen(false)}
+                                          >
+                                            {c.label}
+                                          </Link>
+                                        )}
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              </li>
+                            );
+                          })
+                        ) : (
+                          item.dropdown.map((d) => (
+                            <li key={d.label}>
+                              <Link
+                                to={d.to}
+                                className={styles.mobileDropdownLink}
+                                onClick={() => setMenuOpen(false)}
+                              >
+                                <i className={d.icon} style={{ marginRight: '8px', opacity: 0.8 }}></i>
+                                {d.label}
+                              </Link>
+                            </li>
+                          ))
+                        )}
                       </ul>
                     </>
                   ) : (
@@ -216,6 +363,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

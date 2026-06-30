@@ -19,7 +19,7 @@ export const testimonials = [
     country: 'India',
     flag: '🇮🇳',
     avatar: 'ZF',
-    image: '/assets/testimo/zaib-fatima.jpeg',
+    image: null,
     course: 'PDP',
     rating: 5,
     quote:
@@ -32,7 +32,7 @@ export const testimonials = [
     country: 'New Zealand',
     flag: '🇳🇿',
     avatar: 'FR',
-    image: '/assets/testimo/femie-rose.jpeg',
+    image: null,
     course: 'OET',
     rating: 5,
     quote:
@@ -45,7 +45,7 @@ export const testimonials = [
     country: 'United Kingdom',
     flag: '🇬🇧',
     avatar: 'AJ',
-    image: '/assets/testimo/alphy-jose.jpeg',
+    image: null,
     course: 'IELTS',
     rating: 5,
     quote:
@@ -58,7 +58,7 @@ export const testimonials = [
     country: 'United Kingdom',
     flag: '🇬🇧',
     avatar: 'RB',
-    image: '/assets/testimo/rani-bhanudas.jpeg',
+    image: null,
     course: 'IELTS',
     rating: 5,
     quote:
@@ -71,7 +71,7 @@ export const testimonials = [
     country: 'Kuwait',
     flag: '🇰🇼',
     avatar: 'RJ',
-    image: '/assets/testimo/rashed-jarallah.jpeg',
+    image: '/assets/testimo/Rashed_jarallah_alenezi.jpeg',
     course: 'IELTS',
     rating: 5,
     quote:
@@ -84,7 +84,7 @@ export const testimonials = [
     country: 'UAE',
     flag: '🇦🇪',
     avatar: 'DS',
-    image: '/assets/testimo/dr-sathvika.jpeg',
+    image: null,
     course: 'CPHQ',
     rating: 5,
     quote:
@@ -97,7 +97,7 @@ export const testimonials = [
     country: 'UAE',
     flag: '🇦🇪',
     avatar: 'GP',
-    image: '/assets/testimo/gajapriya.jpeg',
+    image: '/assets/testimo/Gajapriya_panneerselvam.jpeg',
     course: 'CPHQ',
     rating: 5,
     quote:
@@ -110,7 +110,7 @@ export const testimonials = [
     country: 'India',
     flag: '🇮🇳',
     avatar: 'PS',
-    image: '/assets/testimo/dr-pavitra.jpeg',
+    image: '/assets/testimo/Dr_Pavitra_sangwan.jpeg',
     course: 'CPHQ',
     rating: 5,
     quote:
@@ -123,7 +123,7 @@ export const testimonials = [
     country: 'India',
     flag: '🇮🇳',
     avatar: 'AC',
-    image: '/assets/testimo/dr-ammiraju.jpeg',
+    image: '/assets/testimo/Ammiraju_Chitamaneni.jpeg',
     course: 'CPHQ',
     rating: 5,
     quote:
@@ -136,7 +136,7 @@ export const testimonials = [
     country: 'Pakistan',
     flag: '🇵🇰',
     avatar: 'MA',
-    image: '/assets/testimo/muhammad-ahmad.jpeg',
+    image: '/assets/testimo/Muhammad_ahmad.jpeg',
     course: 'CPHQ',
     rating: 5,
     quote:

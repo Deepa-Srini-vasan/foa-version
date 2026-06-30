@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { contactInfo } from '../data/team';
+import { getCourseLink } from '../data/courseUrls';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -48,13 +49,28 @@ export default function Footer() {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Popular Courses</h4>
             <ul className={styles.colList}>
-              <li><Link to="/courses/cphq">CPHQ Training</Link></li>
-              <li><Link to="/courses/ielts">IELTS Preparation</Link></li>
-              <li><Link to="/courses/oet">OET Training</Link></li>
-              <li><Link to="/courses/pte">PTE Academic</Link></li>
-              <li><Link to="/courses/cpps">CPPS Training</Link></li>
-              <li><Link to="/courses/business-english">Business English</Link></li>
-              <li><Link to="/courses/cma">CMA Certification</Link></li>
+              {[
+                { label: 'CPHQ Training', slug: 'cphq' },
+                { label: 'IELTS Preparation', slug: 'ielts' },
+                { label: 'OET Training', slug: 'oet' },
+                { label: 'PTE Academic', slug: 'pte' },
+                { label: 'CPPS Training', slug: 'cpps' },
+                { label: 'Business English', slug: 'business-english' },
+                { label: 'CMA Certification', slug: 'cma' }
+              ].map((item) => {
+                const link = getCourseLink(item.slug);
+                return (
+                  <li key={item.slug}>
+                    {link.isExternal ? (
+                      <a href={link.to} target="_blank" rel="noopener noreferrer">
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link to={link.to}>{item.label}</Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

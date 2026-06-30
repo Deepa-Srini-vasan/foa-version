@@ -646,4 +646,9 @@ input, textarea, select {
   .whatsapp-float { bottom: 16px; right: 16px; }
   .back-to-top { bottom: 62px; right: 16px; }
   .toast { bottom: 16px; right: 16px; left: 16px; }
+  .page-banner {
+    min-height: 200px;
+    padding-top: calc(var(--nav-height) + var(--space-xl));
+    padding-bottom: var(--space-xl);
+  }
 }
