@@ -682,6 +682,7 @@ export const courses = [
     color: 'linear-gradient(135deg, #1a0010 0%, #380028 40%, #1a0010 100%)',
   },
   {
+    
     id: 'shrm',
     slug: 'shrm',
     title: 'SHRM Certification',
