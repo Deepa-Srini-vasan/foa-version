@@ -7,9 +7,9 @@ export const faqs = [
   },
   {
     id: 2,
-    question: 'What qualifications & experience do ProFRONTIER teachers have?',
+    question: 'What qualifications & experience do ProFRONTIER trainers have?',
     answer:
-      'Our institution is committed to providing the highest quality education and training, supported by a team of highly qualified and experienced professionals. Our instructors hold advanced degrees & certifications in their respective fields from renowned universities. Our team collectively brings decades of teaching and industry experience, ensuring that students receive practical, real-world insights along with theoretical knowledge. We have successfully trained thousands of students, helping them achieve their personal and professional goals.',
+      'Our institution is committed to providing the highest quality education and training, supported by a team of highly qualified and experienced professionals. Our trainers hold advanced degrees & certifications in their respective fields from renowned universities. Our team collectively brings decades of training and industry experience, ensuring that students receive practical, real-world insights along with theoretical knowledge. We have successfully trained thousands of students, helping them achieve their personal and professional goals.',
   },
   {
     id: 3,
@@ -20,19 +20,19 @@ export const faqs = [
     id: 4,
     question: 'How can students make payment?',
     answer:
-      'There are different modes of payment options available. For more information, contact our customer service team at +965-22094240.',
+      'There are different modes of payment options available. For more information, contact our customer service team at +965-55377150.',
   },
   {
     id: 5,
     question: 'What discounts can I avail?',
     answer:
-      'We have fantastic discount vouchers and scholarships available always. For more information, contact our customer service team at +965-22094240.',
+      'We have fantastic discount vouchers and scholarships available always. For more information, contact our customer service team at +965-55377150.',
   },
   {
     id: 6,
     question: 'Can students request a refund?',
     answer:
-      'Yes, they can request a refund if they meet certain conditions. For more information, contact our customer service team at +965-22094240.',
+      'Yes, they can request a refund if they meet certain conditions. For more information, contact our customer service team at +965-55377150.',
   },
   {
     id: 7,

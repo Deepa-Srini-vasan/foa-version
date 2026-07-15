@@ -14,8 +14,8 @@ import styles from './HomePage.module.css';
 
 const WHY_US = [
   { icon: 'fa-solid fa-graduation-cap', title: 'British-Certified Master Trainers', desc: 'Learn from expert mentors certified by Oxford TEFL and Trinity College London, bringing global pedagogy standards straight to your screen.' },
-  { icon: 'fa-solid fa-shield-halved', title: 'Accredited Global Certifications', desc: 'Choose from over 100+ professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation designed to match global industry standards.' },
-  { icon: 'fa-solid fa-user-gear', title: 'End-to-End Success Tracking', desc: 'We do not just teach; we monitor and mentor your progress directly until you achieve your target IELTS, OET, PTE score or certification.' },
+  { icon: 'fa-solid fa-shield-halved', title: 'Accredited Global Certifications', desc: 'Choose from over 100+ professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, AI, Finance, Information Technology, Human Resources, and Aviation designed to match global industry standards.' },
+  { icon: 'fa-solid fa-user-gear', title: 'End-to-End Success Tracking', desc: 'We do not just teach; we monitor and mentor your progress directly until you reach your target of exam scores or certification.' },
   { icon: 'fa-solid fa-earth-asia', title: 'Seamless Study Abroad Pathways', desc: 'Get direct guidance, applications, and support for overseas education in top destinations like USA, UK, Canada, Australia, and Germany.' },
   { icon: 'fa-solid fa-desktop', title: 'Smart Digital Classrooms', desc: 'Experience interactive high-definition live sessions, flexible schedules, and comprehensive lifetime study resources from anywhere.' },
   { icon: 'fa-solid fa-award', title: 'Elite Student Success Rate', desc: 'Join thousands of successful professionals and students across 20+ countries who achieved their career goals with ProFRONTIER.' },
@@ -24,7 +24,7 @@ const WHY_US = [
 const OFFERS = [
   { icon: 'fa-solid fa-chalkboard-user', title: 'Learn From Certified Experts', desc: 'Our trainers are British-certified from Oxford TEFL and Trinity College London. They track student progress until the end result and deliver high-quality training.', link: '/courses', linkText: 'View Courses' },
   { icon: 'fa-solid fa-plane', title: 'We Offer Overseas Education', desc: 'Overseas education offers students exposure to different cultures, languages, and educational systems, broadening their perspectives and enhancing personal and professional development.', link: '/overseas', linkText: 'Explore Overseas', featured: true },
-  { icon: 'fa-solid fa-trophy', title: '100+ Courses Available', desc: 'Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation — carefully assessed for quality and educational soundness.', link: '/courses', linkText: 'Browse All' },
+  { icon: 'fa-solid fa-trophy', title: '100+ Courses Available', desc: 'Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, AI, Finance, Information Technology, Human Resources, and Aviation — carefully assessed for quality and educational soundness.', link: '/courses', linkText: 'Browse All' },
 ];
 
 export default function HomePage() {
@@ -57,9 +57,9 @@ export default function HomePage() {
               <span className={styles.heroBadgeHighlight}>2026 Cohorts Open</span>
             </div>
             <h1 className={styles.heroHeading}>
-              <span>Educate.</span>
-              <span>Empower.</span>
-              <span className="gradient-text">Excel.</span>
+              <span>Education</span>
+              <span>beyond</span>
+              <span className="gradient-text">boundaries</span>
             </h1>
             <p className={styles.heroDesc}>
               ProFRONTIER blends expert mentors with future-ready online classrooms — IELTS, OET, PTE, professional English and 100+ global certifications. Our trainers are British-certified from Oxford TEFL and Trinity College London.
@@ -91,7 +91,7 @@ export default function HomePage() {
           <div className="section__header">
             <span className="section__tag">WHAT WE OFFER FOR GROWTH</span>
             <h2 className="section__title">A Better Learning Era <span className="gradient-text">Starts Here!</span></h2>
-            <p className="section__desc">Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, Finance, Information Technology, Human Resources, and Aviation — 100+ options</p>
+            <p className="section__desc">Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, AI, Finance, Information Technology, Human Resources, and Aviation — 100+ options</p>
           </div>
           <div className={styles.offerGrid}>
             {OFFERS.map((o, i) => (
@@ -224,7 +224,6 @@ export default function HomePage() {
           <div className={styles.guaranteeRow}>
             {[
               { n: '97%', l: 'Student satisfaction rate based on exit surveys' },
-              { n: '15 days', l: 'Money-back guarantee if not completely satisfied' },
               { n: '90%', l: 'Of students report improved confidence in speaking' },
             ].map((g) => (
               <div key={g.n} className={styles.guaranteeStat}>
@@ -275,9 +274,9 @@ export default function HomePage() {
                   <i className="fa-solid fa-envelope" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
                   profrontieronlineacademy@gmail.com
                 </a>
-                <a href="tel:+96522094240" className={styles.ctaContactItem}>
+                <a href="tel:+96555377150" className={styles.ctaContactItem}>
                   <i className="fa-solid fa-phone" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>
-                  +965-22094240
+                  +965-55377150
                 </a>
                 <div className={styles.ctaContactItem}>
                   <i className="fa-solid fa-location-dot" style={{ marginRight: '8px', color: 'var(--blue)' }}></i>

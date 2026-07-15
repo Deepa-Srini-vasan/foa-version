@@ -81,8 +81,8 @@ export default function FaqsPage() {
               <Link to="/contact" className="btn btn--gradient">
                 Contact Counselor →
               </Link>
-              <a href="tel:+96522094240" className="btn btn--outline">
-                Call +965-22094240
+              <a href="tel:+96555377150" className="btn btn--outline">
+                Call +965-55377150
               </a>
             </div>
           </div>

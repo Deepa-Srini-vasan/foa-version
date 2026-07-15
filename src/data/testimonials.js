@@ -19,7 +19,7 @@ export const testimonials = [
     country: 'India',
     flag: '🇮🇳',
     avatar: 'ZF',
-    image: null,
+    image: '/assets/testimo/Zaib.jpg',
     course: 'PDP',
     rating: 5,
     quote:
@@ -32,7 +32,7 @@ export const testimonials = [
     country: 'New Zealand',
     flag: '🇳🇿',
     avatar: 'FR',
-    image: null,
+    image: '/assets/testimo/Femie rose baby.jpg',
     course: 'OET',
     rating: 5,
     quote:
@@ -45,7 +45,7 @@ export const testimonials = [
     country: 'United Kingdom',
     flag: '🇬🇧',
     avatar: 'AJ',
-    image: null,
+    image: '/assets/testimo/Alphy jose.jpg',
     course: 'IELTS',
     rating: 5,
     quote:
@@ -58,7 +58,7 @@ export const testimonials = [
     country: 'United Kingdom',
     flag: '🇬🇧',
     avatar: 'RB',
-    image: null,
+    image: '/assets/testimo/Rani Bhanudas.jpg',
     course: 'IELTS',
     rating: 5,
     quote:

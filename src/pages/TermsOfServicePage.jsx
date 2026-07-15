@@ -143,7 +143,7 @@ export default function TermsOfServicePage() {
               <p>📍 Middle East, Kuwait | India</p>
               <p>📧 <a href="mailto:contact@profrontieracademy.com">contact@profrontieracademy.com</a></p>
               <p>📧 <a href="mailto:profrontieronlineacademy@gmail.com">profrontieronlineacademy@gmail.com</a></p>
-              <p>📞 <a href="tel:+96522094240">+965-22094240</a></p>
+              <p>📞 <a href="tel:+96555377150">+965-55377150</a></p>
             </div>
           </Section>
 

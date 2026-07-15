@@ -65,7 +65,7 @@ export const contactInfo = {
     'contact@profrontieracademy.com',
     'profrontieronlineacademy@gmail.com',
   ],
-  phones: ['+965-22094240'], // Primary office line
+  phones: ['+965-55377150'], // Primary office line
   address: 'Kuwait | India (Future Office: UAE)',
   mapLink: 'https://www.google.com/maps/place/Kuwait/',
   offices: [
@@ -73,7 +73,7 @@ export const contactInfo = {
       country: 'Kuwait',
       name: 'Corporate Headquarters',
       address: 'Salmiya, Salem Al Mubarak St, Kuwait',
-      phone: '+965-22094240',
+      phone: '+965-55377150',
       mapLink: 'https://www.google.com/maps/place/Salmiya,+Kuwait/',
       status: 'Active'
     },

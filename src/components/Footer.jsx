@@ -50,13 +50,16 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Popular Courses</h4>
             <ul className={styles.colList}>
               {[
-                { label: 'CPHQ Training', slug: 'cphq' },
-                { label: 'IELTS Preparation', slug: 'ielts' },
-                { label: 'OET Training', slug: 'oet' },
-                { label: 'PTE Academic', slug: 'pte' },
-                { label: 'CPPS Training', slug: 'cpps' },
+                { label: 'CPHQ', slug: 'cphq' },
+                { label: 'CPPS', slug: 'cpps' },
+                { label: 'CPHRM', slug: 'cphrm' },
+                { label: 'IELTS', slug: 'ielts' },
+                { label: 'OET', slug: 'oet' },
+                { label: 'PTE', slug: 'pte' },
                 { label: 'Business English', slug: 'business-english' },
-                { label: 'CMA Certification', slug: 'cma' }
+                { label: 'Advanced English', slug: 'advanced-english' },
+                { label: 'British Accent', slug: 'british-accent' },
+                { label: 'Personality Development', slug: 'personality-dev' }
               ].map((item) => {
                 const link = getCourseLink(item.slug);
                 return (
