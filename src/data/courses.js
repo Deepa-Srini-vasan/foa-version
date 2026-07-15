@@ -37,7 +37,7 @@ export const courses = [
       'Access to extensive practice material — FREE',
       '95%+ students achieve their target band score',
     ],
-    image: '/assets/courses/ielts.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'oet',
@@ -64,7 +64,7 @@ export const courses = [
       'Grade A/B achievement strategies',
       'Free study materials included',
     ],
-    image: '/assets/courses/oet.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'pte',
@@ -91,7 +91,7 @@ export const courses = [
       'Results available within 5 business days',
       'Unlimited free practice tests provided',
     ],
-    image: '/assets/courses/pte.png',
+    image: '/assets/categories/language.png',
   },
   // ── ENGLISH ────────────────────────────────
   {
@@ -119,7 +119,7 @@ export const courses = [
       'Improve reading and writing foundations',
       'Certificate upon successful completion',
     ],
-    image: '/assets/courses/basic-english.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'intermediate-english',
@@ -146,7 +146,7 @@ export const courses = [
       'Prepare for advanced English or exam pathways',
       'Certificate upon completion',
     ],
-    image: '/assets/courses/intermediate-english.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'advanced-english',
@@ -173,7 +173,7 @@ export const courses = [
       'Ideal for university applications or C1/C2 exams',
       'Certificate upon completion',
     ],
-    image: '/assets/courses/advanced-english.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'business-english',
@@ -200,7 +200,7 @@ export const courses = [
       'Build confidence for international business settings',
       'Certificate upon successful completion',
     ],
-    image: '/assets/courses/business-english.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'voice-accent',
@@ -227,7 +227,7 @@ export const courses = [
       'Understand British intonation rise-and-fall patterns',
       'Confidence in any professional or social setting',
     ],
-    image: '/assets/courses/voice-accent.png',
+    image: '/assets/categories/softskills.png',
   },
   // ── LANGUAGES ─────────────────────────────
   {
@@ -255,7 +255,7 @@ export const courses = [
       'Improve your CV & LinkedIn profile',
       'Get hired by brands like Google, Amazon, JP Morgan',
     ],
-    image: '/assets/courses/french.png',
+    image: '/assets/categories/language.png',
   },
   {
     id: 'german',
@@ -282,7 +282,7 @@ export const courses = [
       'Open doors to free university education in Germany',
       'Internationally recognised certification',
     ],
-    image: '/assets/courses/german.png',
+    image: '/assets/categories/language.png',
     color: 'linear-gradient(135deg, #1a0a0a 0%, #2d1010 40%, #1a0a0a 100%)',
   },
   {
@@ -310,7 +310,7 @@ export const courses = [
       'Globally recognised Mandarin proficiency certification',
       'Career opportunities in trade, technology & education',
     ],
-    image: '/assets/courses/chinese.png',
+    image: '/assets/categories/language.png',
     color: 'linear-gradient(135deg, #0d0a00 0%, #2a1f00 40%, #0d0a00 100%)',
   },
   {
@@ -338,7 +338,7 @@ export const courses = [
       'Open doors to Japan\'s thriving technology sector',
       'Certificate upon completion',
     ],
-    image: '/assets/courses/japanese.png',
+    image: '/assets/categories/language.png',
     color: 'linear-gradient(135deg, #0a0a1a 0%, #1a0030 40%, #0a0a1a 100%)',
   },
   {
@@ -366,7 +366,7 @@ export const courses = [
       'Growing demand in Middle East and Central Asia',
       'Certificate upon completion',
     ],
-    image: '/assets/courses/turkish.png',
+    image: '/assets/categories/language.png',
     color: 'linear-gradient(135deg, #0d0500 0%, #2a1500 40%, #0d0500 100%)',
   },
   // ── SOFT SKILLS ───────────────────────────
@@ -395,7 +395,7 @@ export const courses = [
       'Create powerful first impressions every time',
       'Certificate upon successful completion',
     ],
-    image: '/assets/courses/personality-dev.png',
+    image: '/assets/categories/softskills.png',
     color: 'linear-gradient(135deg, #0a1200 0%, #1a2800 40%, #0a1200 100%)',
   },
   {
@@ -423,7 +423,7 @@ export const courses = [
       'Build resilience and problem-solving capabilities',
       'Certificate upon successful completion',
     ],
-    image: '/assets/courses/leadership.png',
+    image: '/assets/categories/softskills.png',
     color: 'linear-gradient(135deg, #080012 0%, #160028 40%, #080012 100%)',
   },
   {
@@ -451,7 +451,7 @@ export const courses = [
       'Navigate from initial contact to final negotiations',
       'Certificate upon successful completion',
     ],
-    image: '/assets/courses/interview.png',
+    image: '/assets/categories/softskills.png',
     color: 'linear-gradient(135deg, #001212 0%, #002828 40%, #001212 100%)',
   },
   // ── FINANCE ───────────────────────────────
@@ -480,7 +480,7 @@ export const courses = [
       'Senior leadership pathway in finance',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cma.png',
+    image: '/assets/categories/finance.png',
     color: 'linear-gradient(135deg, #001a00 0%, #003300 40%, #001a00 100%)',
   },
   {
@@ -508,7 +508,7 @@ export const courses = [
       'Access to AICPA community and professional network',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cpa.png',
+    image: '/assets/categories/finance.png',
     color: 'linear-gradient(135deg, #0a001a 0%, #1e0038 40%, #0a001a 100%)',
   },
   {
@@ -536,7 +536,7 @@ export const courses = [
       'Strong ethical and principled practice framework',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/acca.png',
+    image: '/assets/categories/finance.png',
     color: 'linear-gradient(135deg, #001a1a 0%, #003838 40%, #001a1a 100%)',
   },
   {
@@ -564,7 +564,7 @@ export const courses = [
       'Ongoing professional development requirements',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cfm.png',
+    image: '/assets/categories/finance.png',
     color: 'linear-gradient(135deg, #1a0a00 0%, #382000 40%, #1a0a00 100%)',
   },
   {
@@ -592,7 +592,7 @@ export const courses = [
       'Access to global CFA Institute network',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cfa.png',
+    image: '/assets/categories/finance.png',
     color: 'linear-gradient(135deg, #00001a 0%, #000038 40%, #00001a 100%)',
   },
   // ── IT & SOFTWARE ─────────────────────────
@@ -621,7 +621,7 @@ export const courses = [
       'Transferable skills across multiple platforms',
       'Certificate upon completion',
     ],
-    image: '/assets/courses/excel.png',
+    image: '/assets/categories/it.png',
     color: 'linear-gradient(135deg, #001a08 0%, #003818 40%, #001a08 100%)',
   },
   {
@@ -649,7 +649,7 @@ export const courses = [
       'Large and active developer community support',
       'Certificate upon completion',
     ],
-    image: '/assets/courses/cplus.png',
+    image: '/assets/categories/it.png',
     color: 'linear-gradient(135deg, #0a0a00 0%, #242400 40%, #0a0a00 100%)',
   },
   // ── HUMAN RESOURCE ────────────────────────
@@ -678,7 +678,7 @@ export const courses = [
       'Stay current with HR laws and practices',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/hrci.png',
+    image: '/assets/categories/hr.png',
     color: 'linear-gradient(135deg, #1a0010 0%, #380028 40%, #1a0010 100%)',
   },
   {
@@ -707,7 +707,7 @@ export const courses = [
       'Enhance your career advancement opportunities',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/shrm.png',
+    image: '/assets/categories/hr.png',
     color: 'linear-gradient(135deg, #000a1a 0%, #001838 40%, #000a1a 100%)',
   },
   // ── AVIATION ──────────────────────────────
@@ -736,7 +736,7 @@ export const courses = [
       'Aviation English and communication skills',
       'Internationally recognised certificate',
     ],
-    image: '/assets/courses/cabin-crew.png',
+    image: '/assets/categories/aviation.png',
     color: 'linear-gradient(135deg, #00081a 0%, #001038 40%, #00081a 100%)',
   },
   {
@@ -764,7 +764,7 @@ export const courses = [
       'Pathways to airport director and operations manager roles',
       'Internationally recognised certificate',
     ],
-    image: '/assets/courses/airport-management.png',
+    image: '/assets/categories/aviation.png',
     color: 'linear-gradient(135deg, #001a10 0%, #003828 40%, #001a10 100%)',
   },
   // ── SAFETY ────────────────────────────────
@@ -793,7 +793,7 @@ export const courses = [
       'Valued by major oil & gas, construction and manufacturing firms',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/nebosh.png',
+    image: '/assets/categories/safety.png',
     color: 'linear-gradient(135deg, #1a0800 0%, #381800 40%, #1a0800 100%)',
   },
   {
@@ -821,7 +821,7 @@ export const courses = [
       'Investigate and report incidents professionally',
       'Internationally recognised certificate',
     ],
-    image: '/assets/courses/iosh.png',
+    image: '/assets/categories/safety.png',
     color: 'linear-gradient(135deg, #1a0000 0%, #380000 40%, #1a0000 100%)',
   },
   {
@@ -849,7 +849,7 @@ export const courses = [
       'Suitable for all levels and industries',
       'Internationally recognised certificate',
     ],
-    image: '/assets/courses/first-aid.png',
+    image: '/assets/categories/safety.png',
     color: 'linear-gradient(135deg, #1a0500 0%, #381000 40%, #1a0500 100%)',
   },
   {
@@ -877,7 +877,7 @@ export const courses = [
       'Hands-on practical fire safety exercises',
       'Course Completion Certificate from Empower Institute',
     ],
-    image: '/assets/courses/firefighting.png',
+    image: '/assets/categories/safety.png',
     color: 'linear-gradient(135deg, #100008 0%, #280018 40%, #100008 100%)',
   },
   // ── HEALTHCARE ────────────────────────────
@@ -906,7 +906,7 @@ export const courses = [
       'Meet JCI and CBAHI accreditation requirements',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cphq.png',
+    image: '/assets/categories/healthcare.png',
     color: 'linear-gradient(135deg, #001818 0%, #003030 40%, #001818 100%)',
   },
   {
@@ -934,7 +934,7 @@ export const courses = [
       'Extensive study materials and practice exams provided',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cpps.png',
+    image: '/assets/categories/healthcare.png',
     color: 'linear-gradient(135deg, #051528 0%, #0c2b48 40%, #051528 100%)',
   },
   {
@@ -962,7 +962,7 @@ export const courses = [
       'Official guidelines and syllabus review',
       'Study materials included — FREE',
     ],
-    image: '/assets/courses/cphrm.png',
+    image: '/assets/categories/healthcare.png',
     color: 'linear-gradient(135deg, #0e1b18 0%, #1c322e 40%, #0e1b18 100%)',
   },
 ];

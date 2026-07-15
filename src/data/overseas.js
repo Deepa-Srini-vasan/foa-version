@@ -5,7 +5,7 @@ export const countries = [
     name: 'Australia',
     flag: '🇦🇺',
     color: '#00843D',
-    image: '/assets/countries/Australia.png',
+    image: '/assets/countries/australia.png',
     tagline: 'World-Class Education & Multicultural Experience',
     description:
       'Studying in Australia is a highly sought-after experience for international students due to its excellent education system, diverse program offerings, and culturally rich environment. Australia is renowned for its practical learning and emphasis on research.',
@@ -27,7 +27,7 @@ export const countries = [
     name: 'United Kingdom',
     flag: '🇬🇧',
     color: '#012169',
-    image: '/assets/countries/United Kingdom (UK).png',
+    image: '/assets/countries/uk.png',
     tagline: 'Home to the World\'s Finest Universities',
     description:
       "The United Kingdom remains amongst the top preferences of students intending to study abroad. Being home to the finest and oldest universities in the world, the UK stands out for its exceptional quality of education. Universities in the UK offer rigorous and intensive one-year Master programmes, making it an ideal destination to earn top-notch education in a short span.",
@@ -49,7 +49,7 @@ export const countries = [
     name: 'United States of America',
     flag: '🇺🇸',
     color: '#B22234',
-    image: '/assets/countries/United States of America (USA).png',
+    image: '/assets/countries/usa.png',
     tagline: 'Unrivalled Leader for International Students',
     description:
       "With time, the USA has emerged as an unquestionable leader as far as international students are concerned, attracting people from all over the globe. The country's appeal stems from its diverse population, world-class universities, and strategic location near innovation centres like Silicon Valley.",
@@ -71,7 +71,7 @@ export const countries = [
     name: 'Canada',
     flag: '🇨🇦',
     color: '#FF0000',
-    image: '/assets/countries/Canada.png',
+    image: '/assets/countries/canada.png',
     tagline: 'Quality Education & Pathway to Residency',
     description:
       "International students have a unique opportunity to study in Canada that guarantees the best quality of education, multiculturalism, and numerous prospects to develop personally and professionally. It also creates an environment where people from different parts of the world interact freely.",
@@ -93,7 +93,7 @@ export const countries = [
     name: 'Ireland',
     flag: '🇮🇪',
     color: '#169B62',
-    image: '/assets/countries/Ireland.png',
+    image: '/assets/countries/ireland.png',
     tagline: 'Quality Education in the Heart of Europe',
     description:
       "International students can expect a quality education while studying in Ireland, which emphasises scientific research and innovation. The courses are taught in English, thereby freeing itself from any kinds of language barriers.",
@@ -115,7 +115,7 @@ export const countries = [
     name: 'Germany',
     flag: '🇩🇪',
     color: '#000000',
-    image: '/assets/countries/Germany.png',
+    image: '/assets/countries/germany.png',
     tagline: 'Free Education, World-Class Research',
     description:
       "Germany is a highly preferred place among international students because of its quality education, choice of schools and courses, and affordability. What's impressive is the fact that there are a huge number of universities that offer courses in English.",
@@ -137,7 +137,7 @@ export const countries = [
     name: 'France',
     flag: '🇫🇷',
     color: '#002395',
-    image: '/assets/countries/France.png',
+    image: '/assets/countries/france.png',
     tagline: 'Culture, Excellence & Innovation',
     description:
       "France offers a robust education system that is highly appealing to international students. The country boasts a strong state presence in the organisation and funding of education, with the French education system offering a range of programmes at lycées, universities, and Grandes Ecoles.",
@@ -159,7 +159,7 @@ export const countries = [
     name: 'New Zealand',
     flag: '🇳🇿',
     color: '#00247D',
-    image: '/assets/countries/New Zealand.png',
+    image: '/assets/countries/new-zealand.png',
     tagline: 'Safe, Welcoming & Globally Recognised',
     description:
       "New Zealand offers international students quality education with an emphasis on practical learning in a safe, welcoming and friendly environment with breathtaking natural landscapes.",
