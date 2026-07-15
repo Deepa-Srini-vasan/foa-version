@@ -57,12 +57,12 @@ export default function HomePage() {
               <span className={styles.heroBadgeHighlight}>2026 Cohorts Open</span>
             </div>
             <h1 className={styles.heroHeading}>
-              <span>Education</span>
-              <span>beyond</span>
-              <span className="gradient-text">boundaries</span>
+              <span>Build</span>
+              <span>Career-Ready Skills</span>
+              <span className="gradient-text">Beyond Boundaries</span>
             </h1>
             <p className={styles.heroDesc}>
-              ProFRONTIER blends expert mentors with future-ready online classrooms — IELTS, OET, PTE, professional English and 100+ global certifications. Our trainers are British-certified from Oxford TEFL and Trinity College London.
+              ProFRONTIER International Online Academy offers career-focused online courses in English communication, IELTS, OET, PTE, AI, healthcare quality and patient safety, HR, finance, IT, software, soft skills, and corporate training — helping learners and professionals build practical skills, confidence, and global career readiness.
             </p>
             <div className={styles.heroCTA}>
               <Link to="/contact" className="btn btn--gradient btn--lg">Get Started →</Link>
