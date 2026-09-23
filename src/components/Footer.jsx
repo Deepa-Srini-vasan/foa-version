@@ -19,9 +19,7 @@ export default function Footer() {
               />
             </Link>
             <p className={styles.tagline}>
-              We are providing a top-notch education and training. We carefully select
-              the best online courses from around the world to bring to you, in the
-              comfort of your own home, an affordable, world-class education.
+              ProFRONTIER International Online Academy offers career-focused online courses in English communication, IELTS, OET, PTE, AI, healthcare quality, HR, finance, IT, software, soft skills, and corporate training — helping learners and professionals build practical skills, confidence, and global career readiness.
             </p>
             <div className={styles.social}>
               <a href={contactInfo.social.facebook} target="_blank" rel="noreferrer" className={styles.socialLink} aria-label="Facebook">f</a>
@@ -57,11 +55,32 @@ export default function Footer() {
                 { label: 'OET', slug: 'oet' },
                 { label: 'PTE', slug: 'pte' },
                 { label: 'Business English', slug: 'business-english' },
-                { label: 'Advanced English', slug: 'advanced-english' },
-                { label: 'British Accent', slug: 'british-accent' },
-                { label: 'Personality Development', slug: 'personality-dev' }
+                { label: 'Professional Communication', slug: 'professional-communication' },
+                { label: 'AI Courses', slug: 'ai-courses' },
+                { label: 'HR Courses', slug: 'hr-courses' },
+                { label: 'Finance Courses', slug: 'finance-courses' },
+                { label: 'Soft Skills Training', slug: 'soft-skills-training' },
+                { label: 'Corporate Training', slug: 'corporate-training' },
+                { label: 'British Accent Training', slug: 'british-accent-training' }
               ].map((item) => {
-                const link = getCourseLink(item.slug);
+                let link;
+                if (item.slug === 'professional-communication') {
+                  link = { to: '/courses?cat=language', isExternal: false };
+                } else if (item.slug === 'ai-courses') {
+                  link = { to: '/courses?cat=it', isExternal: false };
+                } else if (item.slug === 'hr-courses') {
+                  link = { to: '/courses?cat=hr', isExternal: false };
+                } else if (item.slug === 'finance-courses') {
+                  link = { to: '/courses?cat=finance', isExternal: false };
+                } else if (item.slug === 'soft-skills-training') {
+                  link = { to: '/courses?cat=softskills', isExternal: false };
+                } else if (item.slug === 'corporate-training') {
+                  link = { to: '/courses?cat=softskills', isExternal: false };
+                } else if (item.slug === 'british-accent-training') {
+                  link = getCourseLink('voice-accent');
+                } else {
+                  link = getCourseLink(item.slug);
+                }
                 return (
                   <li key={item.slug}>
                     {link.isExternal ? (

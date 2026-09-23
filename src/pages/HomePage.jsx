@@ -13,18 +13,61 @@ import { getFaIcon } from '../utils/icons';
 import styles from './HomePage.module.css';
 
 const WHY_US = [
-  { icon: 'fa-solid fa-graduation-cap', title: 'British-Certified Master Trainers', desc: 'Learn from expert mentors certified by Oxford TEFL and Trinity College London, bringing global pedagogy standards straight to your screen.' },
-  { icon: 'fa-solid fa-shield-halved', title: 'Accredited Global Certifications', desc: 'Choose from over 100+ professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, AI, Finance, Information Technology, Human Resources, and Aviation designed to match global industry standards.' },
-  { icon: 'fa-solid fa-user-gear', title: 'End-to-End Success Tracking', desc: 'We do not just teach; we monitor and mentor your progress directly until you reach your target of exam scores or certification.' },
-  { icon: 'fa-solid fa-earth-asia', title: 'Seamless Study Abroad Pathways', desc: 'Get direct guidance, applications, and support for overseas education in top destinations like USA, UK, Canada, Australia, and Germany.' },
-  { icon: 'fa-solid fa-desktop', title: 'Smart Digital Classrooms', desc: 'Experience interactive high-definition live sessions, flexible schedules, and comprehensive lifetime study resources from anywhere.' },
-  { icon: 'fa-solid fa-award', title: 'Elite Student Success Rate', desc: 'Join thousands of successful professionals and students across 20+ countries who achieved their career goals with ProFRONTIER.' },
+  {
+    icon: 'fa-solid fa-graduation-cap',
+    title: 'Certified & Experienced Trainers',
+    desc: 'Learn from qualified trainers and subject experts who bring practical teaching, guided feedback, and professional learning support straight to your screen.'
+  },
+  {
+    icon: 'fa-solid fa-briefcase',
+    title: 'Career-Focused Course Categories',
+    desc: 'Choose from 100+ online courses in healthcare quality, English exam preparation, AI, HR, finance, IT, software, aviation, soft skills, and corporate training — designed for real career growth.'
+  },
+  {
+    icon: 'fa-solid fa-user-gear',
+    title: 'Progress Support Until Completion',
+    desc: 'We do not just teach. We guide learners with structured support, progress tracking, practice, feedback, and mentoring until they move closer to their learning or certification goals.'
+  },
+  {
+    icon: 'fa-solid fa-earth-asia',
+    title: 'Overseas Education Guidance',
+    desc: 'Get guidance for overseas education pathways, applications, and study-abroad opportunities in leading destinations including the UK, USA, Canada, Australia, Germany, and more.'
+  },
+  {
+    icon: 'fa-solid fa-desktop',
+    title: 'Flexible Digital Classrooms',
+    desc: 'Experience interactive online classes, flexible schedules, live sessions, recorded resources, and learner-friendly digital support from anywhere in the world.'
+  },
+  {
+    icon: 'fa-solid fa-users',
+    title: 'Trusted by Global Learners',
+    desc: 'Join a growing community of learners and professionals across countries who choose ProFRONTIER to build skills, prepare for certifications, improve communication, and grow professionally.'
+  },
 ];
 
 const OFFERS = [
-  { icon: 'fa-solid fa-chalkboard-user', title: 'Learn From Certified Experts', desc: 'Our trainers are British-certified from Oxford TEFL and Trinity College London. They track student progress until the end result and deliver high-quality training.', link: '/courses', linkText: 'View Courses' },
-  { icon: 'fa-solid fa-plane', title: 'We Offer Overseas Education', desc: 'Overseas education offers students exposure to different cultures, languages, and educational systems, broadening their perspectives and enhancing personal and professional development.', link: '/overseas', linkText: 'Explore Overseas', featured: true },
-  { icon: 'fa-solid fa-trophy', title: '100+ Courses Available', desc: 'Professional courses in Health Care & Quality, English Exam Preparation, Languages, Soft Skills, AI, Finance, Information Technology, Human Resources, and Aviation — carefully assessed for quality and educational soundness.', link: '/courses', linkText: 'Browse All' },
+  {
+    icon: 'fa-solid fa-chalkboard-user',
+    title: 'Learn From Certified Trainers',
+    desc: 'Build practical skills with experienced trainers in English communication, exam preparation, healthcare quality, AI, HR, finance, IT, software, soft skills, and corporate training — with guided support from learning to completion.',
+    link: '/courses',
+    linkText: 'View Courses'
+  },
+  {
+    icon: 'fa-solid fa-laptop-code',
+    title: 'Career-Focused Online Learning',
+    desc: 'Access flexible online courses designed for students, professionals, and organisations who want career-ready skills, global exposure, stronger communication, and practical workplace confidence.',
+    link: '/courses',
+    linkText: 'Explore Programs',
+    featured: true
+  },
+  {
+    icon: 'fa-solid fa-trophy',
+    title: '100+ Courses Available',
+    desc: 'Explore professional courses in healthcare quality and patient safety, IELTS, OET, PTE, English communication, AI, finance, HR, IT, software, aviation, soft skills, and corporate training — carefully selected for real career growth.',
+    link: '/courses',
+    linkText: 'Browse All'
+  },
 ];
 
 export default function HomePage() {
@@ -195,8 +238,8 @@ export default function HomePage() {
         <div className="container">
           <div className="section__header">
             <span className="section__tag">OUR EDGE</span>
-            <h2 className="section__title">Why is this the <span className="gradient-text">Best Choice?</span></h2>
-            <p className="section__desc">Unlocking academic excellence, global opportunities, and professional success through verified coaching excellence</p>
+            <h2 className="section__title">Why Choose <span className="gradient-text">ProFRONTIER?</span></h2>
+            <p className="section__desc">Build career-ready skills through flexible online courses, expert-led training, global certification pathways, and practical support designed for students, professionals, and organisations.</p>
           </div>
           <div className={styles.whyGrid}>
             {WHY_US.map((w, i) => (
